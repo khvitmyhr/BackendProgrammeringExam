@@ -1,4 +1,4 @@
-package com.example.backendprogrammeringexam;
+package com.backendprogrammeringexamTest;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
