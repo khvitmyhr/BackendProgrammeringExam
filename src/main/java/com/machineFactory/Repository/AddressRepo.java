@@ -1,6 +1,6 @@
-package com.example.machineFactory.Repository;
+package com.machineFactory.Repository;
 
-import com.example.machineFactory.Model.Address;
+import com.machineFactory.Model.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

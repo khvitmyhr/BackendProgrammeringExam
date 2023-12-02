@@ -1,6 +1,6 @@
-package com.example.machineFactory.Controller;
+package com.machineFactory.Controller;
 
-import com.example.machineFactory.Repository.SubassemblyRepo;
+import com.machineFactory.Repository.SubassemblyRepo;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

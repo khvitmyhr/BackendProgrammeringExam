@@ -1,6 +1,6 @@
-package com.example.machineFactory.Repository;
+package com.machineFactory.Repository;
 
-import com.example.machineFactory.Model.Customer;
+import com.machineFactory.Model.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepo extends JpaRepository<Customer, Long> {

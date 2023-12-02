@@ -1,6 +1,6 @@
-package com.example.machineFactory.Controller;
+package com.machineFactory.Controller;
 
-import com.example.machineFactory.Service.OrderService;
+import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

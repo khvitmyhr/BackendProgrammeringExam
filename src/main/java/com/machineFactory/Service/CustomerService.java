@@ -1,6 +1,6 @@
-package com.example.machineFactory.Service;
+package com.machineFactory.Service;
 
-import com.example.machineFactory.Repository.CustomerRepo;
+import com.machineFactory.Repository.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
