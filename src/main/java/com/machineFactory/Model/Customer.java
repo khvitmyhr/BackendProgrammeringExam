@@ -1,6 +1,5 @@
 package com.machineFactory.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,15 +21,12 @@ public class Customer {
 
     private Long customerId = 0L;
 
-    @OneToMany (cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("address")
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "address_id")
     private List<Address> addresses = new ArrayList<>();
 
     @OneToMany (cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("orders")
     @JoinColumn(name = "order_id")
-    private List<Order> orders = new ArrayList<>();
-
-
+    private List<OrderModel> orders = new ArrayList<>();
+    
 }
