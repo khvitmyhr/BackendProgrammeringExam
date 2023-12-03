@@ -1,17 +1,27 @@
 package com.machineFactory;
 
 import com.machineFactory.Model.Customer;
+import com.machineFactory.Repository.CustomerRepo;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class BackendProgrammeringExamApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BackendProgrammeringExamApplication.class, args);
-
-        //Testbruker
-        Customer customer = new Customer("Frank", "h@hotmail.com");
     }
+
+        @Bean
+        CommandLineRunner commandLineRunner(
+                CustomerRepo customerRepo
+            ) {
+
+            return args -> {
+                Customer customer = customerRepo.save(new Customer("Frank", "h@hotmail.com"));
+            };
+        }
 }
 

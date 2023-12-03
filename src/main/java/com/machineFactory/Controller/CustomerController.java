@@ -3,10 +3,7 @@ package com.machineFactory.Controller;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/customer")
@@ -24,5 +21,10 @@ public class CustomerController {
         return customerService.findCustomerById(id);
     }
 
+
+    @PostMapping
+    public Customer createCustomer(@RequestBody Customer customer) {
+        return customerService.createCustomer(customer);
+    }
 
 }

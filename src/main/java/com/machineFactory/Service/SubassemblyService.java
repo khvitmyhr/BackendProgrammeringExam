@@ -1,6 +1,5 @@
 package com.machineFactory.Service;
 
-import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.Subassembly;
 import com.machineFactory.Repository.SubassemblyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
