@@ -1,7 +1,7 @@
 package com.machineFactory;
 
 import com.machineFactory.Model.Customer;
-import com.machineFactory.Repository.CustomerRepo;
+import com.machineFactory.Repository.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,10 +13,14 @@ public class BackendProgrammeringExamApplication {
     public static void main(String[] args) {
         SpringApplication.run(BackendProgrammeringExamApplication.class, args);
     }
-
         @Bean
         CommandLineRunner commandLineRunner(
-                CustomerRepo customerRepo
+                CustomerRepo customerRepo,
+                AddressRepo addressRepo,
+                MachineRepo machineRepo,
+                OrderRepo orderRepo,
+                PartRepo partRepo,
+                SubassemblyRepo subassemblyRepo
             ) {
 
             return args -> {
