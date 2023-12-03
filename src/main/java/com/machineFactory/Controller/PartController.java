@@ -1,13 +1,11 @@
 package com.machineFactory.Controller;
 
 import com.machineFactory.Model.Customer;
+import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Model.Part;
 import com.machineFactory.Service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/part")
@@ -23,5 +21,10 @@ public class PartController {
     @GetMapping("/{id}")
     public Part getPartById(@PathVariable Long id) {
         return partService.findPartById(id);
+    }
+
+    @PostMapping
+    public Part createPart(@RequestBody Part part) {
+        return partService.createPart(part);
     }
 }

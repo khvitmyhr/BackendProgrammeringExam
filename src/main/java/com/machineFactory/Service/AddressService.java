@@ -20,4 +20,7 @@ public class AddressService {
         return addressRepo.findById(id).orElse(null);
     }
 
+    public Address createAddress(Address address) {
+        return addressRepo.save(address);
+    }
 }

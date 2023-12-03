@@ -1,14 +1,11 @@
 package com.machineFactory.Controller;
 
+import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController
@@ -27,4 +24,8 @@ public class OrderController {
         return orderService.findOrderById(id);
     }
 
+    @PostMapping
+    public OrderModel createOrderModel(@RequestBody OrderModel orderModel) {
+        return orderService.createOrderModel(orderModel);
+    }
 }

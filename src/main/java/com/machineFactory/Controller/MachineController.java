@@ -1,13 +1,11 @@
 package com.machineFactory.Controller;
 
+import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.Machine;
 import com.machineFactory.Service.MachineService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/machine")
@@ -24,4 +22,8 @@ public class MachineController {
         return machineService.findMachineById(id);
     }
 
+    @PostMapping
+    public Machine createMachine(@RequestBody Machine machine) {
+        return machineService.createMachine(machine);
+    }
 }

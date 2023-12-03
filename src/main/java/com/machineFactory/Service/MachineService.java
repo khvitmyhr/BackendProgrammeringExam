@@ -1,5 +1,6 @@
 package com.machineFactory.Service;
 
+import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.Machine;
 import com.machineFactory.Repository.MachineRepo;
@@ -18,5 +19,9 @@ public class MachineService {
 
     public Machine findMachineById(Long id) {
         return machineRepo.findById(id).orElse(null);
+    }
+
+    public Machine createMachine(Machine machine) {
+        return machineRepo.save(machine);
     }
 }

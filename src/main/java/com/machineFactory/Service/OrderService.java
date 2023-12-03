@@ -1,5 +1,6 @@
 package com.machineFactory.Service;
 
+import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Repository.OrderRepo;
@@ -18,5 +19,9 @@ public class OrderService {
 
     public OrderModel findOrderById(Long id) {
         return orderRepo.findById(id).orElse(null);
+    }
+
+    public OrderModel createOrderModel(OrderModel orderModel) {
+        return orderRepo.save(orderModel);
     }
 }

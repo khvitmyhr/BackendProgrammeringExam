@@ -5,10 +5,7 @@ import com.machineFactory.Model.Part;
 import com.machineFactory.Model.Subassembly;
 import com.machineFactory.Repository.SubassemblyRepo;
 import com.machineFactory.Service.SubassemblyService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/subassembly")
@@ -25,4 +22,8 @@ public class SubassemblyController {
         return subassemblyService.findSubassemblyById(id);
     }
 
+    @PostMapping
+    public Subassembly createSubassembly(@RequestBody Subassembly subassembly) {
+        return subassemblyService.createSubassembly(subassembly);
+    }
 }

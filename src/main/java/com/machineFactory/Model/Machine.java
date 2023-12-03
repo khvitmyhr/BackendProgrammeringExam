@@ -1,9 +1,13 @@
 package com.machineFactory.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,5 +24,10 @@ public class Machine {
 
     @Column(name = "machine_name")
     private String machineName;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("machine")
+    @JoinColumn(name = "machine_id")
+    private List<Subassembly> subassemblies = new ArrayList<>();
 
 }
