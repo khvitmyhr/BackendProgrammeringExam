@@ -14,7 +14,11 @@ public class Machine {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "machine_seq_gen")
     @SequenceGenerator(name = "machine_seq_gen", sequenceName = "machine_seq", allocationSize = 1)
-    @Column(name = "machine_id")
 
+    @Column(name = "machine_id")
     private Long machineId = 0L;
+
+    @Column(name = "machine_name")
+    private String machineName;
+
 }

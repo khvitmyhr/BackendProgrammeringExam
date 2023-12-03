@@ -12,11 +12,13 @@ import lombok.Setter;
 @Entity
 public class Subassembly {
 
+    //Undermontering?
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subassembly_seq_gen")
     @SequenceGenerator(name = "subassembly_seq_gen", sequenceName = "subassembly_seq", allocationSize = 1)
-    @Column(name = "subassembly_id")
 
+    @Column(name = "subassembly_id")
     private Long subassemblyId = 0L;
 
 }
