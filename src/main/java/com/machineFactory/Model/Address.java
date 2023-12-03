@@ -1,5 +1,6 @@
 package com.machineFactory.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -29,5 +30,16 @@ public class Address {
     @Column(name = "city")
     private String city;
 
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    //@JsonIgnoreProperties("addresses")
+    private Customer customer;
 
+    public Address(Long addressId, String street, int zipCode, String city, Customer customer) {
+        this.addressId = addressId;
+        this.street = street;
+        this.zipCode = zipCode;
+        this.city = city;
+        this.customer = customer;
+    }
 }

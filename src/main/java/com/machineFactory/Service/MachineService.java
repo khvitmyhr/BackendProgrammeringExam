@@ -1,5 +1,7 @@
 package com.machineFactory.Service;
 
+import com.machineFactory.Model.Customer;
+import com.machineFactory.Model.Machine;
 import com.machineFactory.Repository.MachineRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,5 +14,9 @@ public class MachineService {
     @Autowired
     MachineService(MachineRepo machineRepo) {
         this.machineRepo = machineRepo;
+    }
+
+    public Machine findMachineById(Long id) {
+        return machineRepo.findById(id).orElse(null);
     }
 }

@@ -15,6 +15,7 @@ import java.util.List;
 @Entity
 public class Customer {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "customer_seq_gen")
     @SequenceGenerator(name = "customer_seq_gen", sequenceName = "customer_seq", allocationSize = 1)
@@ -22,11 +23,13 @@ public class Customer {
     @Column(name = "customer_id")
     private Long customerId = 0L;
 
-    @Column(name = "owner_name")
-    private String ownerName;
+    @Column(name = "customer_name")
+    private String customerName;
 
-    @Column(name = "owner_email")
-    private String ownerEmail;
+    @Column(name = "customer_email")
+    private String customerEmail;
+
+    //Nå vet customer om address, og order
 
     @OneToMany(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("customer")
@@ -38,10 +41,8 @@ public class Customer {
     @JoinColumn(name = "customer_id")
     private List<OrderModel> orders = new ArrayList<>();
 
-
-    public Customer(Long customerId, String ownerName, String ownerEmail) {
-        this.customerId = customerId;
-        this.ownerName = ownerName;
-        this.ownerEmail = ownerEmail;
+    public Customer(String customerName, String customerEmail) {
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
     }
 }
