@@ -1,7 +1,5 @@
 package com.machineFactory.Controller;
 
-import com.machineFactory.Model.Customer;
-import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Model.Part;
 import com.machineFactory.Service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,5 +24,10 @@ public class PartController {
     @PostMapping
     public Part createPart(@RequestBody Part part) {
         return partService.createPart(part);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deletePartById(@PathVariable Long id) {
+        partService.deletePart(id);
     }
 }

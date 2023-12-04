@@ -1,14 +1,9 @@
 package com.machineFactory.Service;
 
-import com.machineFactory.Model.Customer;
-import com.machineFactory.Model.Machine;
-import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Model.Part;
 import com.machineFactory.Repository.PartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Service
 public class PartService {
@@ -27,5 +22,9 @@ public class PartService {
 
     public Part createPart(Part part) {
         return partRepo.save(part);
+    }
+
+    public void deletePart(Long id) {
+        partRepo.deleteById(id);
     }
 }

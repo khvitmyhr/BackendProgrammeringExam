@@ -1,9 +1,6 @@
 package com.machineFactory.Controller;
 
-import com.machineFactory.Model.Customer;
-import com.machineFactory.Model.Part;
 import com.machineFactory.Model.Subassembly;
-import com.machineFactory.Repository.SubassemblyRepo;
 import com.machineFactory.Service.SubassemblyService;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,5 +22,10 @@ public class SubassemblyController {
     @PostMapping
     public Subassembly createSubassembly(@RequestBody Subassembly subassembly) {
         return subassemblyService.createSubassembly(subassembly);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteSubassemblyById(@PathVariable Long id) {
+        subassemblyService.deleteSubassembly(id);
     }
 }

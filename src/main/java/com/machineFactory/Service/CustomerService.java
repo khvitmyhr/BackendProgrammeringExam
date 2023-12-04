@@ -21,4 +21,7 @@ public class CustomerService {
         return customerRepo.save(customer);
     }
 
+    public void deleteCustomer(Long id) {
+        customerRepo.deleteById(id);
+    }
 }

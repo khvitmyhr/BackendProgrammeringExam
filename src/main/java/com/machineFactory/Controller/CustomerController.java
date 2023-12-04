@@ -21,10 +21,14 @@ public class CustomerController {
         return customerService.findCustomerById(id);
     }
 
-
     @PostMapping
     public Customer createCustomer(@RequestBody Customer customer) {
         return customerService.createCustomer(customer);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCustomerById(@PathVariable Long id) {
+        customerService.deleteCustomer(id);
     }
 
 }

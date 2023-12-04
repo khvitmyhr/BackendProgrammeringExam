@@ -1,7 +1,6 @@
 package com.machineFactory.Controller;
 
-import com.machineFactory.Model.Address;
-import com.machineFactory.Model.Customer;
+
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +22,13 @@ public class OrderController {
     public OrderModel getOrderById(@PathVariable Long id) {
         return orderService.findOrderById(id);
     }
-
     @PostMapping
     public OrderModel createOrderModel(@RequestBody OrderModel orderModel) {
         return orderService.createOrderModel(orderModel);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteOrderById(@PathVariable Long id) {
+        orderService.deleteOrder(id);
     }
 }

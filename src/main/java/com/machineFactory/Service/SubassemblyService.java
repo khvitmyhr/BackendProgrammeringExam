@@ -1,6 +1,5 @@
 package com.machineFactory.Service;
 
-import com.machineFactory.Model.Part;
 import com.machineFactory.Model.Subassembly;
 import com.machineFactory.Repository.SubassemblyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,4 +22,9 @@ public class SubassemblyService {
     public Subassembly createSubassembly(Subassembly subassembly) {
         return subassemblyRepo.save(subassembly);
     }
+
+    public void deleteSubassembly(Long id) {
+        subassemblyRepo.deleteById(id);
+    }
+
 }

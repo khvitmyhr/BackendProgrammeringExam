@@ -1,7 +1,6 @@
 package com.machineFactory.Service;
 
 import com.machineFactory.Model.Address;
-import com.machineFactory.Model.Customer;
 import com.machineFactory.Repository.AddressRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,5 +21,9 @@ public class AddressService {
 
     public Address createAddress(Address address) {
         return addressRepo.save(address);
+    }
+
+    public void deleteAddress(Long id) {
+        addressRepo.deleteById(id);
     }
 }
