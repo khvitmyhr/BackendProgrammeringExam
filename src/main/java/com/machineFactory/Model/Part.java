@@ -18,7 +18,7 @@ public class Part {
     @Column(name = "part_id")
     private Long partId = 0L;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "part_name")
+    private String partName;
 
 }

@@ -34,8 +34,7 @@ public class Address {
     //@JsonIgnoreProperties("addresses")
     private Customer customer;
 
-    public Address(Long addressId, String street, int zipCode, String city, Customer customer) {
-        this.addressId = addressId;
+    public Address(String street, int zipCode, String city, Customer customer) {
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;

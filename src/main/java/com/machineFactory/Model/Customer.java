@@ -29,7 +29,6 @@ public class Customer {
     @Column(name = "customer_email")
     private String customerEmail;
 
-    //Nå vet customer om address, og order
 
     @OneToMany(cascade = CascadeType.ALL)
     @JsonIgnoreProperties("customer")
