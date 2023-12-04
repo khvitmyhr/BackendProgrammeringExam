@@ -34,6 +34,11 @@ public class Subassembly {
     @JoinColumn(name = "subassembly_id")
     private List<Part> parts = new ArrayList<>();
 
+    public Subassembly(String subassemblyName, List<Part> parts) {
+        this.subassemblyName = subassemblyName;
+        this.parts = parts;
+    }
+
     public Subassembly(String subassemblyName) {
         this.subassemblyName = subassemblyName;
     }
