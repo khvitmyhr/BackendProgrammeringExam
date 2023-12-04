@@ -30,4 +30,12 @@ public class Machine {
     @JoinColumn(name = "machine_id")
     private List<Subassembly> subassemblies = new ArrayList<>();
 
+    public Machine(String machineName, ArrayList<Subassembly> subassemblies) {
+        this.machineName = machineName;
+        this.subassemblies = subassemblies;
+    }
+
+    public Machine(String machineName) {
+        this.machineName = machineName;
+    }
 }

@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Getter
@@ -33,4 +34,7 @@ public class Subassembly {
     @JoinColumn(name = "subassembly_id")
     private List<Part> parts = new ArrayList<>();
 
+    public Subassembly(String subassemblyName) {
+        this.subassemblyName = subassemblyName;
+    }
 }
