@@ -4,6 +4,8 @@ import com.machineFactory.Model.Subassembly;
 import com.machineFactory.Service.SubassemblyService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/subassembly")
 public class SubassemblyController {
@@ -19,6 +21,11 @@ public class SubassemblyController {
         return subassemblyService.findSubassemblyById(id);
     }
 
+
+    @GetMapping("/page/{pageNr}")
+    public List<Subassembly> getSubassemblyByPage(@PathVariable int pageNr) {
+        return subassemblyService.getAllSubassemblysWithPagination(pageNr);
+    }
     @PostMapping
     public Subassembly createSubassembly(@RequestBody Subassembly subassembly) {
         return subassemblyService.createSubassembly(subassembly);

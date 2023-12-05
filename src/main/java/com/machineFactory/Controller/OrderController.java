@@ -6,6 +6,8 @@ import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/api/order")
@@ -22,6 +24,12 @@ public class OrderController {
     public OrderModel getOrderById(@PathVariable Long id) {
         return orderService.findOrderById(id);
     }
+
+    @GetMapping("/page/{pageNr}")
+    public List<OrderModel> getOrderByPage(@PathVariable int pageNr) {
+        return orderService.getAllOrdreWithPagination(pageNr);
+    }
+
     @PostMapping
     public OrderModel createOrderModel(@RequestBody OrderModel orderModel) {
         return orderService.createOrderModel(orderModel);

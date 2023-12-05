@@ -5,6 +5,8 @@ import com.machineFactory.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/address")
 public class AddressController {
@@ -17,6 +19,11 @@ public class AddressController {
     @GetMapping("/{id}")
     public Address getAddressById(@PathVariable Long id) {
         return addressService.findAddressById(id);
+    }
+
+    @GetMapping("/page/{pageNr}")
+    public List<Address> getAddressByPage(@PathVariable int pageNr) {
+        return addressService.getAllAddressesWithPagination(pageNr);
     }
 
     @PostMapping

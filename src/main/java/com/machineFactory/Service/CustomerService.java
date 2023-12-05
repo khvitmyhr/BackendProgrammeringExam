@@ -25,6 +25,10 @@ public class CustomerService {
         return customerRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
     }
 
+    public List<Customer> getAllCustomers() {
+        return customerRepo.findAll();
+    }
+
     public Customer createCustomer(Customer customer) {
         return customerRepo.save(customer);
     }
