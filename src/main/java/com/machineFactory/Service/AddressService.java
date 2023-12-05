@@ -26,6 +26,10 @@ public class AddressService {
         return addressRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
     }
 
+    public List<Address> getAllAddresses() {
+       return addressRepo.findAll();
+    }
+
     public Address createAddress(Address address) {
         return addressRepo.save(address);
     }

@@ -1,6 +1,7 @@
 package com.machineFactory.Controller;
 
 import com.machineFactory.Model.Address;
+import com.machineFactory.Model.Customer;
 import com.machineFactory.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +25,11 @@ public class AddressController {
     @GetMapping("/page/{pageNr}")
     public List<Address> getAddressByPage(@PathVariable int pageNr) {
         return addressService.getAllAddressesWithPagination(pageNr);
+    }
+
+    @GetMapping
+    public List<Address> getAllAddresses(){
+        return addressService.getAllAddresses();
     }
 
     @PostMapping
