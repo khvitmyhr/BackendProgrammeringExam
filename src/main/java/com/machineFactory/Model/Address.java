@@ -1,10 +1,14 @@
 package com.machineFactory.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -29,15 +33,14 @@ public class Address {
     @Column(name = "city")
     private String city;
 
-    @ManyToOne
-    @JoinColumn(name = "customer_id")
-    //@JsonIgnoreProperties("addresses")
-    private Customer customer;
 
-    public Address(String street, int zipCode, String city, Customer customer) {
+    @ManyToMany(mappedBy = "addresses", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<Customer> customers = new ArrayList<>();
+
+    public Address(String street, int zipCode, String city) {
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
-        this.customer = customer;
     }
 }

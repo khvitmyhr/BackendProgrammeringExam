@@ -1,5 +1,6 @@
 package com.machineFactory.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -29,11 +30,15 @@ public class Customer {
     @Column(name = "customer_email")
     private String customerEmail;
 
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("customer")
-    @JoinColumn(name = "customer_id")
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "customer_address",
+            joinColumns = @JoinColumn(name = "customer_id"),
+            inverseJoinColumns = @JoinColumn(name = "address_id")
+    )
     private List<Address> addresses = new ArrayList<>();
+
+
 
     @OneToMany (cascade = CascadeType.ALL)
     @JsonIgnoreProperties("customer")
