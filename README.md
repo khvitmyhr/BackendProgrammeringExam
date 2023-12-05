@@ -1,15 +1,8 @@
-Litt usikker:
-
-Order must know about machines, but machines do not need to 
-know what orders they are part of.
-Skal da machines ha manyToOne i seg uansett?
 
 Generelt når den ikke skal vite om den andre, skal da manyToOne
 inn i den klassen?
 
-
 Part --> subassambly --> machine
-
 
 Lage fabrikk hvor:
 Kjøretøy.
@@ -19,19 +12,23 @@ Kjøretøy.
 part: stempel, sylindre, skruer, tannhjul, aksel, 
 
 
-
 kan bruke denne for å poste i customer:
 {
-"customerId": 2,
 "customerName": "Odrunn",
 "customerEmail": "Odd_ru@hotmail.com",
 "addresses": [
 {
 "street": "Luvisesgate 9",
-"zipCode": 0355,
+"zipCode": 3559,
 "city": "Oslo"
 }
 ],
 "orders": []
 }
 ]
+
+Kan kjøre denne spørringen i h2 for å se customer og address:
+SELECT *
+FROM customer_address
+JOIN address ON address.address_id = customer_address.address_id
+JOIN customer ON customer.customer_id = customer_address.customer_id;
