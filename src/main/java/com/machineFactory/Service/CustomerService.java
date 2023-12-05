@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class CustomerService {
 
@@ -36,4 +37,10 @@ public class CustomerService {
     public void deleteCustomer(Long id) {
         customerRepo.deleteById(id);
     }
+
+
+    //Virker ikke enda
+    public void putCustomer(Customer oldName, Customer newName) {
+        getAllCustomers().set(getAllCustomers().indexOf(oldName), newName);
+ }
 }

@@ -1,6 +1,8 @@
 package com.machineFactory.Controller;
 
+import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
+import com.machineFactory.Service.AddressService;
 import com.machineFactory.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,10 +40,26 @@ public class CustomerController {
         return customerService.createCustomer(customer);
     }
 
-
     @DeleteMapping("/{id}")
     public void deleteCustomerById(@PathVariable Long id) {
         customerService.deleteCustomer(id);
     }
+
+    //Påbegynt metode for å legge til addresse
+//    @PostMapping("/{id}")
+//    public void addAddressToCustomer(@PathVariable Long id, @RequestBody Address address) {
+//        final AddressService addressService;
+//
+//        address.getCustomers();
+//    }
+
+
+
+    //Påbegynt put virker ikke helt
+//    @PutMapping ("{oldName}/{newName}")
+//    public void updateCustomer(@PathVariable String oldName, @PathVariable String newName) {
+//        customerService.putCustomer(oldName, newName);
+//    }
+
 
 }
