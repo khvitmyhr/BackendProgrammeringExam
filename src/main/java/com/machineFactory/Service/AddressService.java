@@ -1,5 +1,4 @@
 package com.machineFactory.Service;
-
 import com.machineFactory.Model.Address;
 import com.machineFactory.Repository.AddressRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ public class AddressService {
     private final AddressRepo addressRepo;
 
     @Autowired
-    AddressService(AddressRepo addressRepo) {
+    public AddressService(AddressRepo addressRepo) {
         this.addressRepo = addressRepo;
     }
 
