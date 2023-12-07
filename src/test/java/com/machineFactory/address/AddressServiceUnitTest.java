@@ -22,7 +22,7 @@ public class AddressServiceUnitTest {
     private AddressService addressService;
 
     @Test
-    public void shouldFetcAddresses() {
+    public void fetchAllAddresses() {
         List<Address> appointmentList = List.of(new Address(), new Address(), new Address());
         when(addressRepo.findAll()).thenReturn(appointmentList);
 
