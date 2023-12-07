@@ -28,7 +28,7 @@ public class Address {
     private String street;
 
     @Column(name = "zipCode") //postnr
-    private int zipCode;
+    private String zipCode;
 
     @Column(name = "city")
     private String city;
@@ -38,7 +38,7 @@ public class Address {
     @JsonIgnore
     private List<Customer> customers = new ArrayList<>();
 
-    public Address(String street, int zipCode, String city) {
+    public Address(String street, String zipCode, String city) {
         this.street = street;
         this.zipCode = zipCode;
         this.city = city;
