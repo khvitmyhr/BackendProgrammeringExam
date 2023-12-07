@@ -23,7 +23,7 @@ public class CustomerService {
     }
 
     public List<Customer> getAllCustomerWithPagination(int pageNumber) {
-        return customerRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        return customerRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
 
     public List<Customer> getAllCustomers() {

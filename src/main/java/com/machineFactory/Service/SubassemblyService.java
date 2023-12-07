@@ -24,7 +24,7 @@ public class SubassemblyService {
     }
 
     public List<Subassembly> getAllSubassemblysWithPagination(int pageNumber) {
-        return subassemblyRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        return subassemblyRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
     public Subassembly createSubassembly(Subassembly subassembly) {
         return subassemblyRepo.save(subassembly);

@@ -24,7 +24,7 @@ public class OrderService {
     }
 
     public List<OrderModel> getAllOrdreWithPagination(int pageNumber) {
-        return orderRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        return orderRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
 
     public OrderModel createOrderModel(OrderModel orderModel) {

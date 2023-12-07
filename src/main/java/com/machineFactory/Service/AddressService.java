@@ -22,7 +22,7 @@ public class AddressService {
     }
 
     public List<Address> getAllAddressesWithPagination(int pageNumber) {
-        return addressRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        return addressRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
 
     public List<Address> getAllAddresses() {

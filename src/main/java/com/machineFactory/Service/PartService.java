@@ -24,7 +24,7 @@ public class PartService {
     }
 
     public List<Part> getAllPartsWithPagination(int pageNumber) {
-        return partRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        return partRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
 
     public Part createPart(Part part) {

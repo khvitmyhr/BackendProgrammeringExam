@@ -24,7 +24,7 @@ public class MachineService {
     }
 
     public List<Machine> getAllMachinesWithPagination(int pageNumber) {
-        return machineRepo.findAll(PageRequest.of(pageNumber, 10)).stream().toList();
+        return machineRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
 
     public Machine createMachine(Machine machine) {
