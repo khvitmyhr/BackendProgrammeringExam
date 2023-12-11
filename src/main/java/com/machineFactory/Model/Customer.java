@@ -29,8 +29,6 @@ public class Customer {
     @Column(name = "customer_email")
     private String customerEmail;
 
-    @Column(name = "customer_address")
-    private String customerAddress;
 
 
     @ManyToMany(cascade = CascadeType.ALL)
@@ -53,11 +51,6 @@ public class Customer {
         this.customerEmail = customerEmail;
     }
 
-    public Customer(String customerName, String customerEmail, String address) {
-        this.customerName = customerName;
-        this.customerEmail = customerEmail;
-        this.customerAddress = address;
-    }
 
     public Customer(String customerName) {
         this.customerName = customerName;
