@@ -32,3 +32,26 @@ SELECT *
 FROM customer_address
 JOIN address ON address.address_id = customer_address.address_id
 JOIN customer ON customer.customer_id = customer_address.customer_id;
+
+
+
+Kode for opprette order, men får 500 feil, vet ikke hvorfor
+
+{
+"customer": "Kirsti",
+"machines": [
+{
+"machineName": "Chainsaw",
+"subassemblies": [
+{
+"subassemblyName": "Chain",
+"parts": [
+{
+"partName": "Sawtooth"
+}
+]
+}
+]
+}
+]
+}

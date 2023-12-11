@@ -19,7 +19,6 @@ public class OrderModel {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ordermodel_seq_gen")
     @SequenceGenerator(name = "ordermodel_seq_gen", sequenceName = "ordermodel_seq", allocationSize = 1)
     @Column(name = "ordermodel_id")
-
     private Long machineorderId = 0L;
 
     @ManyToOne
@@ -32,6 +31,8 @@ public class OrderModel {
     @JoinColumn(name = "ordermodel_id")
     private List<Machine> machines = new ArrayList<>();
 
-
-
+    public OrderModel(Customer customer, List<Machine> machines) {
+        this.customer = customer;
+        this.machines = machines;
+    }
 }
