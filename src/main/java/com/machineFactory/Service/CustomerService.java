@@ -47,14 +47,10 @@ public class CustomerService {
 
     // Kode for å legge til addresse til eksisterende kunde
     public Customer addAddressToCustomer(Address address, Long id) {
+        //Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
         Customer customerToUpdate = findCustomerById(id);
 
         ArrayList<Address> list = new ArrayList<>();
-
-        //Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
-
-        //Trenger egt ikke lage objekt, da det skal komme inn som et objekt via parameter
-
         list.add(address);
 
         customerToUpdate.setAddresses(list);
