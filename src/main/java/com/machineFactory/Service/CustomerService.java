@@ -43,4 +43,11 @@ public class CustomerService {
     public void putCustomer(Customer oldName, Customer newName) {
         getAllCustomers().set(getAllCustomers().indexOf(oldName), newName);
  }
+
+    // Kode for å legge til addresse til eksisterende kunde
+    public Customer addAddressToCustomer(String address, Long id) {
+        Customer customerToUpdate = findCustomerById(id);
+        customerToUpdate.setCustomerAddress(address);
+        return customerRepo.save(customerToUpdate);
+    }
 }

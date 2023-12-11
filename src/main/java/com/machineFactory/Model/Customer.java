@@ -1,6 +1,5 @@
 package com.machineFactory.Model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -30,6 +29,10 @@ public class Customer {
     @Column(name = "customer_email")
     private String customerEmail;
 
+    @Column(name = "customer_address")
+    private String customerAddress;
+
+
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "customer_address",
@@ -48,6 +51,12 @@ public class Customer {
     public Customer(String customerName, String customerEmail) {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
+    }
+
+    public Customer(String customerName, String customerEmail, String address) {
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.customerAddress = address;
     }
 
     public Customer(String customerName) {
