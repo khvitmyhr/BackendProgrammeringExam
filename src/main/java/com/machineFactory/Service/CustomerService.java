@@ -51,9 +51,11 @@ public class CustomerService {
 
         ArrayList<Address> list = new ArrayList<>();
 
-        Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
+        //Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
 
-        list.add(address1);
+        //Trenger egt ikke lage objekt, da det skal komme inn som et objekt via parameter
+
+        list.add(address);
 
         customerToUpdate.setAddresses(list);
         return customerRepo.save(customerToUpdate);
