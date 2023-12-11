@@ -31,7 +31,7 @@ public class CustomerController {
 
     //Kode for å legge til addresse til eksisterende. bruker ID i url for å identifisere og finne kunde
     @PostMapping("/customerId/{id}")
-    public Customer createAddressToCustomer(@RequestBody String address, @PathVariable Long id) {
+    public Customer createAddressToCustomer(@RequestBody Address address, @PathVariable Long id) {
        return customerService.addAddressToCustomer(address, id);
     }
 

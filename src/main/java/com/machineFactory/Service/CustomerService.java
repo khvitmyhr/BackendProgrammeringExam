@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -45,9 +46,16 @@ public class CustomerService {
  }
 
     // Kode for å legge til addresse til eksisterende kunde
-    public Customer addAddressToCustomer(String address, Long id) {
+    public Customer addAddressToCustomer(Address address, Long id) {
         Customer customerToUpdate = findCustomerById(id);
-        customerToUpdate.setCustomerAddress(address);
+
+        ArrayList<Address> list = new ArrayList<>();
+
+        Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
+
+        list.add(address1);
+
+        customerToUpdate.setAddresses(list);
         return customerRepo.save(customerToUpdate);
     }
 }
