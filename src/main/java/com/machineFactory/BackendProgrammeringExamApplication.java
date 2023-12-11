@@ -26,37 +26,45 @@ public class BackendProgrammeringExamApplication {
                 OrderRepo orderRepo,
                 PartRepo partRepo,
                 SubassemblyRepo subassemblyRepo,
-                ArrayList<Subassembly> subassemblies,
-                ArrayList<Part> parts
+                ArrayList<Subassembly> subassemblieListForTractor,
+                ArrayList<Subassembly> subassemblieListForChainSaw,
+                ArrayList<Part> partsForMotor,
+                ArrayList<Part> partsForGearbox,
+                ArrayList<Part> partsForChain
             ) {
 
             return args -> {
 
-                Customer customer = customerRepo.save(new Customer("Frank", "h@hotmail.com"));
-
+                //Faker that generates customers and addresses
                 for (int i = 0; i < 20; i++) {
-                    Customer cus = customerRepo.save(new Customer(faker.name().fullName(), faker.internet().emailAddress()));
-                    Address adr = addressRepo.save(new Address(faker.address().streetAddress(), faker.address().zipCode(), faker.address().cityName()));
-                    cus.getAddresses().add(adr);
-                    customerRepo.save(cus);
+                    Customer customer = customerRepo.save(new Customer(faker.name().fullName(), faker.internet().emailAddress()));
+                    Address address = addressRepo.save(new Address(faker.address().streetAddress(), faker.address().zipCode(), faker.address().cityName()));
+                    customer.getAddresses().add(address);
+                    customerRepo.save(customer);
                 }
 
-                Subassembly subassemblyMotor = new Subassembly("Motor");
-                Subassembly subassemblyGirkasse = new Subassembly("Girkasse");
+                Part pistonPart = new Part("Piston"); //Stempel
+                Part cylinderPart = new Part("Cylinder");
+                Part shaftPart = new Part("Shaft"); //aksel
+                Part sawtoothPart = new Part("Sawtooth"); //Sagtann
 
-                subassemblies.add(subassemblyMotor);
-                subassemblies.add(subassemblyGirkasse);
+                partsForMotor.add(pistonPart);
+                partsForMotor.add(cylinderPart);
+                partsForGearbox.add(shaftPart);
+                partsForChain.add(sawtoothPart);
 
-                Machine machine = machineRepo.save(new Machine("Gressklipper"));
-                Machine machine2 = machineRepo.save(new Machine("Traktor", subassemblies));
+                Subassembly subassemblyMotor = new Subassembly("Motor", partsForMotor);
+                Subassembly subassemblyGearbox = new Subassembly("Gearbox", partsForGearbox);
+                Subassembly subassemblySaw = new Subassembly("Chain", partsForChain);
 
-                Part part = new Part("stempel");
-                Part part2 = new Part("sylinder");
-                Part part3 = new Part("aksel");
+                subassemblieListForTractor.add(subassemblyMotor);
+                subassemblieListForTractor.add(subassemblyGearbox);
 
-                parts.add(part);
-                parts.add(part2);
-                parts.add(part3);
+                subassemblieListForChainSaw.add(subassemblySaw);
+                subassemblieListForChainSaw.add(subassemblyMotor);
+
+                Machine machine = machineRepo.save(new Machine("Chainsaw", subassemblieListForChainSaw));
+                Machine machine2 = machineRepo.save(new Machine("Traktor", subassemblieListForTractor));
 
             };
         }
