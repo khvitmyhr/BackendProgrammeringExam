@@ -39,7 +39,6 @@ public class Customer {
     private List<Address> addresses = new ArrayList<>();
 
 
-
     @OneToMany (cascade = CascadeType.ALL)
     @JsonIgnoreProperties("customer")
     @JoinColumn(name = "customer_id")
@@ -59,5 +58,12 @@ public class Customer {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
         this.addresses = addresses;
+    }
+
+    public Customer(String customerName, String customerEmail, List<Address> addresses, List<OrderModel> orders) {
+        this.customerName = customerName;
+        this.customerEmail = customerEmail;
+        this.addresses = addresses;
+        this.orders = orders;
     }
 }
