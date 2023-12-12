@@ -4,6 +4,8 @@ import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -41,6 +43,13 @@ public class AddressController {
     public void deleteAddressById(@PathVariable Long id) {
         addressService.deleteAddress(id);
     }
+    @PutMapping ("{id}/{newName}")
+    public ResponseEntity<String> updateAddress(@PathVariable Long id, @PathVariable String newAddress) {
+        if (addressService.updateAddress(id, newAddress)) {
+            return new ResponseEntity<>("Address updated", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("No address with this id", HttpStatus.NOT_FOUND);
+    }
 
-    //Ta inn en customer
+
 }

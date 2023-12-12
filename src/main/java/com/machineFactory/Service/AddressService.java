@@ -1,10 +1,12 @@
 package com.machineFactory.Service;
 import com.machineFactory.Model.Address;
+import com.machineFactory.Model.Customer;
 import com.machineFactory.Repository.AddressRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -35,5 +37,15 @@ public class AddressService {
 
     public void deleteAddress(Long id) {
         addressRepo.deleteById(id);
+    }
+
+    public boolean updateAddress(Long id, String street) {
+        Address ad = addressRepo.findById(id).orElse(null);
+        if (ad != null) {
+            ad.setStreet(street);
+            addressRepo.save(ad);
+            return true;
+        }
+        return false;
     }
 }

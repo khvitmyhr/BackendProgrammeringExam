@@ -1,6 +1,7 @@
 package com.machineFactory.Service;
 
 import com.machineFactory.Model.Address;
+import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Repository.OrderRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +34,16 @@ public class OrderService {
 
     public void deleteOrder(Long id) {
         orderRepo.deleteById(id);
+    }
+
+    public boolean updateNameOrderCustomer(Long id, String newName) {
+        OrderModel order = orderRepo.findById(id).orElse(null);
+        if (order != null) {
+            Customer customer = new Customer(newName);
+            order.setCustomer(customer);
+            orderRepo.save(order);
+            return true;
+        }
+        return false;
     }
 }

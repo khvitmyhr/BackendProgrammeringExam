@@ -1,6 +1,5 @@
 package com.machineFactory.Service;
 
-import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Part;
 import com.machineFactory.Repository.PartRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,5 +32,15 @@ public class PartService {
 
     public void deletePart(Long id) {
         partRepo.deleteById(id);
+    }
+
+    public boolean updatePart(Long id, String type) {
+        Part part = partRepo.findById(id).orElse(null);
+        if (part != null) {
+            part.setPartName(type);
+            partRepo.save(part);
+            return true;
+        }
+        return false;
     }
 }

@@ -3,6 +3,8 @@ package com.machineFactory.Controller;
 import com.machineFactory.Model.Part;
 import com.machineFactory.Service.PartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,5 +38,13 @@ public class PartController {
     @DeleteMapping("/{id}")
     public void deletePartById(@PathVariable Long id) {
         partService.deletePart(id);
+    }
+
+    @PutMapping ("{id}/{type}")
+    public ResponseEntity<String> updatePartType(@PathVariable Long id, @PathVariable String type) {
+        if (partService.updatePart(id, type)) {
+            return new ResponseEntity<>("Part updated", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("No part with this id", HttpStatus.NOT_FOUND);
     }
 }

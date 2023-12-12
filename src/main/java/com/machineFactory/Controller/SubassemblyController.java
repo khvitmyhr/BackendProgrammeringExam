@@ -2,6 +2,8 @@ package com.machineFactory.Controller;
 
 import com.machineFactory.Model.Subassembly;
 import com.machineFactory.Service.SubassemblyService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -34,5 +36,13 @@ public class SubassemblyController {
     @DeleteMapping("/{id}")
     public void deleteSubassemblyById(@PathVariable Long id) {
         subassemblyService.deleteSubassembly(id);
+    }
+
+    @PutMapping ("{id}/{type}")
+    public ResponseEntity<String> updateCustomer(@PathVariable Long id, @PathVariable String type) {
+        if (subassemblyService.updateSubassembly(id, type)) {
+            return new ResponseEntity<>("Subassembly updated", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("No subassembly with this id", HttpStatus.NOT_FOUND);
     }
 }

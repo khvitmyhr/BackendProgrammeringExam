@@ -1,6 +1,5 @@
 package com.machineFactory.Service;
 
-import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Machine;
 import com.machineFactory.Repository.MachineRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +25,21 @@ public class MachineService {
     public List<Machine> getAllMachinesWithPagination(int pageNumber) {
         return machineRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
-
     public Machine createMachine(Machine machine) {
         return machineRepo.save(machine);
     }
 
     public void deleteMachine(Long id) {
         machineRepo.deleteById(id);
+    }
+
+    public boolean updateMachine(Long id, String type) {
+        Machine machine = machineRepo.findById(id).orElse(null);
+        if (machine != null) {
+            machine.setMachineName(type);
+            machineRepo.save(machine);
+            return true;
+        }
+        return false;
     }
 }

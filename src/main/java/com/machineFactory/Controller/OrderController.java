@@ -4,6 +4,8 @@ package com.machineFactory.Controller;
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,4 +41,22 @@ public class OrderController {
     public void deleteOrderById(@PathVariable Long id) {
         orderService.deleteOrder(id);
     }
+
+    //If you want to change customer for the order
+    @PutMapping ("/customer/{id}/{newName}")
+    public ResponseEntity<String> updateCustomerInOrder(@PathVariable Long id, @PathVariable String newName) {
+        if (orderService.updateNameOrderCustomer(id, newName)) {
+            return new ResponseEntity<>("Order customer updated", HttpStatus.OK);
+        }
+        return new ResponseEntity<>("No customer with this id", HttpStatus.NOT_FOUND);
+    }
+
+//    @PutMapping ("/machine/{id}/{newType}")
+//    public ResponseEntity<String> updateMachineInOrder(@PathVariable Long id, @PathVariable String newType) {
+//        if (orderService.updateMachineOrderCustomer(id, newType)) {
+//            return new ResponseEntity<>("Order machine updated", HttpStatus.OK);
+//        }
+//        return new ResponseEntity<>("No machine with this id", HttpStatus.NOT_FOUND);
+//    }
+
 }
