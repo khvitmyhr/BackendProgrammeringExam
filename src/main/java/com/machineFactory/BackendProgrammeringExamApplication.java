@@ -39,7 +39,7 @@ public class BackendProgrammeringExamApplication {
             return args -> {
 
                 //Faker that generates customers and addresses
-                for (int i = 0; i < 20; i++) {
+                for (int i = 0; i < 5; i++) {
                     Customer customer = customerRepo.save(new Customer(faker.name().fullName(), faker.internet().emailAddress()));
                     Address address = addressRepo.save(new Address(faker.address().streetAddress(), faker.address().zipCode(), faker.address().cityName()));
                     customer.getAddresses().add(address);
