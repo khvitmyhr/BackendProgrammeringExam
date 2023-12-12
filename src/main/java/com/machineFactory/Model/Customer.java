@@ -45,21 +45,13 @@ public class Customer {
     @JoinColumn(name = "customer_id")
     private List<OrderModel> orders = new ArrayList<>();
 
-
     public Customer(String customerName, String customerEmail) {
         this.customerName = customerName;
         this.customerEmail = customerEmail;
     }
 
-
     public Customer(String customerName) {
         this.customerName = customerName;
-    }
-
-    public Customer(String customerName, String customerEmail, List<Address> addresses) {
-        this.customerName = customerName;
-        this.customerEmail = customerEmail;
-        this.addresses = addresses;
     }
 
     public Customer(String customerName, String customerEmail, List<Address> addresses, List<OrderModel> orders) {
