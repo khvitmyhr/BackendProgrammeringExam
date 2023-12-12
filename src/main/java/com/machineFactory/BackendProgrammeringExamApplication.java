@@ -29,6 +29,7 @@ public class BackendProgrammeringExamApplication {
                 SubassemblyRepo subassemblyRepo,
                 ArrayList<Address> addresses,
                 ArrayList<Customer> customers,
+                ArrayList<Machine> machines,
                 ArrayList<Subassembly> subassemblieListForTractor,
                 ArrayList<Subassembly> subassemblieListForChainSaw,
                 ArrayList<Part> partsForMotor,
@@ -66,8 +67,14 @@ public class BackendProgrammeringExamApplication {
                 subassemblieListForChainSaw.add(subassemblySaw);
                 subassemblieListForChainSaw.add(subassemblyMotor);
 
-                Machine machine = machineRepo.save(new Machine("Chainsaw", subassemblieListForChainSaw));
+                Machine machine1 = machineRepo.save(new Machine("Chainsaw", subassemblieListForChainSaw));
                 Machine machine2 = machineRepo.save(new Machine("Traktor", subassemblieListForTractor));
+
+                //Creates an order
+                Customer customer1 = new Customer("Jens");
+                customerRepo.save(customer1);
+                machines.add(machine1);
+                OrderModel order1 = orderRepo.save(new OrderModel(customer1, machines));
 
                 //Create a customer, and add an address to it
                 Customer customer = customerRepo.save(new Customer("Helga", "helga@gmail.com"));
@@ -82,9 +89,6 @@ public class BackendProgrammeringExamApplication {
                 customers.add(customer2);
                 address2.setCustomers(customers);
                 addressRepo.save(address2);
-
-
-
             };
         }
 }
