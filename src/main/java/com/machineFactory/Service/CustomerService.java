@@ -45,10 +45,9 @@ public class CustomerService {
             cus.setCustomerName(newName);
             customerRepo.save(cus);
             return true;
-        } else {
-            return false;
         }
- }
+        return false;
+    }
 
 
 
