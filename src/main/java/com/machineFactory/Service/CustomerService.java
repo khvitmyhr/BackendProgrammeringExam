@@ -39,13 +39,21 @@ public class CustomerService {
         customerRepo.deleteById(id);
     }
 
-
-    //Virker ikke enda
-    public void putCustomer(Customer oldName, Customer newName) {
-        getAllCustomers().set(getAllCustomers().indexOf(oldName), newName);
+    public boolean updateNameCustomer(Long id, String newName) {
+        Customer cus = customerRepo.findById(id).orElse(null);
+        if (cus != null) {
+            cus.setCustomerName(newName);
+            customerRepo.save(cus);
+            return true;
+        } else {
+            return false;
+        }
  }
 
-    // Kode for å legge til addresse til eksisterende kunde
+
+
+
+    // Kode for å legge til addresse til eksisterende kunde. Mulig fjerne denne
     public Customer addAddressToCustomer(Address address, Long id) {
         //Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
         Customer customerToUpdate = findCustomerById(id);

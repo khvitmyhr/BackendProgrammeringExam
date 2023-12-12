@@ -34,8 +34,4 @@ public class Machine {
         this.machineName = machineName;
         this.subassemblies = subassemblies;
     }
-
-    public Machine(String machineName) {
-        this.machineName = machineName;
-    }
 }

@@ -4,6 +4,8 @@ import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,6 +32,7 @@ public class CustomerController {
     }
 
     //Kode for å legge til addresse til eksisterende. bruker ID i url for å identifisere og finne kunde
+    //Muligens fjerne denne, gjøre via main istedet
     @PostMapping("/customerId/{id}")
     public Customer createAddressToCustomer(@RequestBody Address address, @PathVariable Long id) {
        return customerService.addAddressToCustomer(address, id);
@@ -50,21 +53,11 @@ public class CustomerController {
         customerService.deleteCustomer(id);
     }
 
-    //Påbegynt metode for å legge til addresse
-//    @PostMapping("/{id}")
-//    public void addAddressToCustomer(@PathVariable Long id, @RequestBody Address address) {
-//        final AddressService addressService;
-//
-//        address.getCustomers();
-//    }
-
-
-
-    //Påbegynt put virker ikke helt
-//    @PutMapping ("{oldName}/{newName}")
-//    public void updateCustomer(@PathVariable String oldName, @PathVariable String newName) {
-//        customerService.putCustomer(oldName, newName);
-//    }
-
-
+    @PutMapping ("{id}/{newName}")
+    public ResponseEntity<String> updateCustomer(@PathVariable Long id, @PathVariable String newName) {
+        if (customerService.updateNameCustomer(id, newName)) {
+            return new ResponseEntity<>("Customer updated", HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
