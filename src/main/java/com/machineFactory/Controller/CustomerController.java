@@ -58,6 +58,6 @@ public class CustomerController {
         if (customerService.updateNameCustomer(id, newName)) {
             return new ResponseEntity<>("Customer updated", HttpStatus.OK);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>("No customer with this id", HttpStatus.NOT_FOUND);
     }
 }
