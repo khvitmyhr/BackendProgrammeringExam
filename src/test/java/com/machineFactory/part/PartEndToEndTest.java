@@ -1,9 +1,12 @@
 package com.machineFactory.part;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.machineFactory.Model.Part;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -34,5 +37,23 @@ public class PartEndToEndTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    public void shouldPostAddressAndGet200() throws Exception {
+        Part part = new Part("Nail");
+
+        mockMvc.perform(post("/api/part")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(asJsonString(part)))
+                .andExpect(status().isOk());
+    }
+
+    //Helper method for the post Test, from the source page.
+    public static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
 
