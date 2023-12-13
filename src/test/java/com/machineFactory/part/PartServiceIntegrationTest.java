@@ -1,5 +1,6 @@
 package com.machineFactory.part;
 
+import com.machineFactory.Model.Part;
 import com.machineFactory.Service.PartService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +29,14 @@ public class PartServiceIntegrationTest {
         var machines = partService.getAllPartsWithPagination(1);
         assert machines.isEmpty();
     }
+
+    @Test
+    @Transactional
+    void shouldAddPart(){
+        var machines = partService.createPart(new Part("Screw"));
+        assert machines.getPartName().equals("Screw");
+    }
+
+
 }
 
