@@ -1,4 +1,4 @@
-package com.machineFactory.repoTests;
+package com.machineFactory.customer;
 
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Repository.CustomerRepo;

@@ -1,15 +1,15 @@
-package com.machineFactory.repoTests;
+package com.machineFactory.address;
 
+import com.machineFactory.Repository.AddressRepo;
 import com.machineFactory.Repository.CustomerRepo;
-import com.machineFactory.Repository.SubassemblyRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
-public class SubassemblyRepoTest {
+public class AddressRepoTest {
     @Autowired
-    private SubassemblyRepo subassemblyRepo;
+    private AddressRepo addressRepo;
     @Test
-    public void SubassemblyTestRepo(){}
+    public void AddressTestRepo(){}
 }

@@ -1,15 +1,15 @@
-package com.machineFactory.repoTests;
+package com.machineFactory.subassembly;
 
 import com.machineFactory.Repository.CustomerRepo;
-import com.machineFactory.Repository.OrderRepo;
+import com.machineFactory.Repository.SubassemblyRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 @DataJpaTest
-public class OrderRepoTest {
+public class SubassemblyRepoTest {
     @Autowired
-    private OrderRepo orderRepo;
+    private SubassemblyRepo subassemblyRepo;
     @Test
-    public void OrderTestRepo(){}
+    public void SubassemblyTestRepo(){}
 }
