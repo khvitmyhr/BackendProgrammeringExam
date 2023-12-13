@@ -20,5 +20,13 @@ public class PartServiceIntegrationTest {
         var parts = partService.getAllPartsWithPagination(0);
         assert parts.size() == 4;
     }
+
+    @Test
+    @Transactional
+    void shouldFetchPartsFromPage1ShouldAsseryEmpty(){
+
+        var machines = partService.getAllPartsWithPagination(1);
+        assert machines.isEmpty();
+    }
 }
 
