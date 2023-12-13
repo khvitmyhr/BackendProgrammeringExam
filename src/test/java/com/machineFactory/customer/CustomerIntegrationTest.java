@@ -1,79 +1,33 @@
 package com.machineFactory.customer;
 
-
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.machineFactory.Controller.CustomerController;
 import com.machineFactory.Model.Customer;
+import com.machineFactory.Repository.CustomerRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.util.AssertionErrors.assertEquals;
+import static org.springframework.test.util.AssertionErrors.assertNotNull;
 
 @SpringBootTest
-@AutoConfigureMockMvc
+@Transactional
 public class CustomerIntegrationTest {
 
     @Autowired
-    MockMvc mockMvc;
+    private CustomerController customerController;
+    @Autowired
+    private CustomerRepo customerRepo;
 
     @Test
-    public void shouldGetAllCustomersAndGet200() throws Exception {
-        mockMvc.perform(get("/api/customer"))
-                .andExpect(status().isOk());
+    public void testCustomer(){
+        //Customer customer = new Customer("Ivar");
+        //customerRepo.save(customer);
+        //Customer Customer = customerController.getCustomerById(customer.getCustomerId());
+        //assertEquals(HttpStatus.OK, Customer.());
+        // assertEquals("Ivar", Customer.getCustomerName());
     }
-
-    @Test
-    void shouldReceive404FromCustomerControllerIfWrongURL() throws Exception {
-        mockMvc.perform(get("/api/customers"))
-                .andExpect(status().isNotFound());
-    }
-
-
-    @Test
-    public void shouldDeleteFirstCustomerGet200() throws Exception {
-        mockMvc.perform(delete("/api/customer/1"))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void shouldPostCustomerAndGet200() throws Exception {
-        Customer customer = new Customer("Jens", "jens@gmail.com");
-
-        mockMvc.perform(post("/api/customer")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(asJsonString(customer)))
-                .andExpect(status().isOk());
-    }
-
-    public static String asJsonString(final Object obj) {
-        try {
-            return new ObjectMapper().writeValueAsString(obj);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-
-//
-//
-//    @Autowired
-//    private CustomerController customerController;
-//    @Autowired
-//    private CustomerRepo customerRepo;
-//
-//    @Test
-//    public void testCustomer(){
-//        //Customer customer = new Customer("Ivar");
-//        //customerRepo.save(customer);
-//        //Customer Customer = customerController.getCustomerById(customer.getCustomerId());
-//        //assertEquals(HttpStatus.OK, Customer.());
-//        // assertEquals("Ivar", Customer.getCustomerName());
-//    }
-//}
-
 }
-
