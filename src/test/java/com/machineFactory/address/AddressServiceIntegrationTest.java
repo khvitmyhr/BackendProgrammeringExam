@@ -9,8 +9,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -27,6 +27,12 @@ public class AddressServiceIntegrationTest {
     }
 
     @Test
+    void shouldReciece404FromAddressControllerIfWrongURL() throws Exception {
+        mockMvc.perform(get("/api/addresses"))
+                .andExpect(status().isNotFound());
+    }
+
+    @Test
     public void shouldPostAddressAndGet200() throws Exception {
         Address address = new Address("Kyllingveien 3", "1999", "Bergen");
 
@@ -36,11 +42,16 @@ public class AddressServiceIntegrationTest {
                 .andExpect(status().isOk());
     }
 
+    @Test
+    public void shouldDeleteFirstAddressGet200() throws Exception {
+        mockMvc.perform(delete("/api/address/{id}", 1))
+                .andExpect(status().isOk());
+    }
 
 
+    //Source used for post and delete method: https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
 
     //Helper method for the post Test
-    //Source: https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);
