@@ -27,7 +27,7 @@ public class AddressServiceIntegrationTest {
     }
 
     @Test
-    void shouldReciece404FromAddressControllerIfWrongURL() throws Exception {
+    void shouldReceive404FromAddressControllerIfWrongURL() throws Exception {
         mockMvc.perform(get("/api/addresses"))
                 .andExpect(status().isNotFound());
     }
