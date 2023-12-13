@@ -37,6 +37,5 @@ public class PartServiceIntegrationTest {
         assert machines.getPartName().equals("Screw");
     }
 
-
 }
 
