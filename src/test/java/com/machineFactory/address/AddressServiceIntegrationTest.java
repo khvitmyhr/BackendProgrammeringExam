@@ -1,10 +1,52 @@
 package com.machineFactory.address;
 
 
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.machineFactory.Model.Address;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.MockMvc;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@DataJpaTest
+@SpringBootTest
+@AutoConfigureMockMvc
 public class AddressServiceIntegrationTest {
 
+    @Autowired
+    MockMvc mockMvc;
 
+    @Test
+    public void shouldGetAllAddressesAndGet200() throws Exception {
+        mockMvc.perform(get("/api/address"))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void shouldPostAddressAndGet200() throws Exception {
+        Address address = new Address("Kyllingveien 3", "1999", "Bergen");
+
+        mockMvc.perform(post("/api/address")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(asJsonString(address)))
+                .andExpect(status().isOk());
+    }
+
+
+
+
+    //Helper method for the post Test
+    //Source: https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
+    public static String asJsonString(final Object obj) {
+        try {
+            return new ObjectMapper().writeValueAsString(obj);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
+
