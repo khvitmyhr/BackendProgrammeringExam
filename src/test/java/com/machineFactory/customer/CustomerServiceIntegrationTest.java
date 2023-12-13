@@ -1,7 +1,6 @@
 package com.machineFactory.customer;
 
 import com.machineFactory.Model.Customer;
-import com.machineFactory.Model.Part;
 import com.machineFactory.Service.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
