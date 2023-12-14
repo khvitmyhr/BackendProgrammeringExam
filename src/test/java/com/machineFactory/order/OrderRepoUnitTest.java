@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.List;
 
 @DataJpaTest
-public class OrderUnitTest {
+public class OrderRepoUnitTest {
 
     @Autowired
     OrderRepo orderRepo;

@@ -8,7 +8,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import java.util.List;
 
 @DataJpaTest
-public class PartUnitTest {
+public class PartRepoUnitTest {
 
     @Autowired
     PartRepo partRepo;
