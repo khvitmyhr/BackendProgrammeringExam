@@ -1,6 +1,5 @@
 package com.machineFactory.subassembly;
 
-import com.machineFactory.Repository.CustomerRepo;
 import com.machineFactory.Repository.SubassemblyRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

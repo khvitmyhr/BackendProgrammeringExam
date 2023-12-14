@@ -12,4 +12,12 @@ public class OrderServiceIntegrationTest {
     @Autowired
     OrderService orderService;
 
+    @Test
+    @Transactional
+    void shouldFetchOrderFromPage0ShouldEqual1(){
+
+        var order = orderService.getAllOrdreWithPagination(0);
+        assert order.size() == 1;
+    }
+
 }
