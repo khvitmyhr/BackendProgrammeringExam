@@ -1,20 +1,23 @@
 package com.machineFactory.subassembly;
 
-import com.machineFactory.Controller.SubassemblyController;
-import com.machineFactory.Repository.SubassemblyRepo;
+import com.machineFactory.Service.SubassemblyService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
-@Transactional
 public class SubassemblyIntegrationTest {
+
     @Autowired
-    private SubassemblyController subassemblyController;
-    @Autowired
-    private SubassemblyRepo subassemblyRepo;
+    SubassemblyService subassemblyService;
 
     @Test
-    public void testSubassembly(){}
+    @Transactional
+    void shouldFetchAllSubassembliesWithPaginationShouldEqual3(){
+
+        var subassembly = subassemblyService.getAllSubassemblysWithPagination(0);
+        assert subassembly.size() == 3;
+    }
+
 }

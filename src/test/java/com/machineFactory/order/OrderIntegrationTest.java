@@ -1,22 +1,23 @@
 package com.machineFactory.order;
 
-import com.machineFactory.Controller.CustomerController;
-import com.machineFactory.Controller.OrderController;
-import com.machineFactory.Repository.CustomerRepo;
-import com.machineFactory.Repository.OrderRepo;
+import com.machineFactory.Service.OrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
-@Transactional
 public class OrderIntegrationTest {
+
     @Autowired
-    private OrderController orderController;
-    @Autowired
-    private OrderRepo orderRepo;
+    OrderService orderService;
 
     @Test
-    public void testOrder(){}
+    @Transactional
+    void shouldFetchOrderFromPage0ShouldEqual1(){
+
+        var order = orderService.getAllOrdreWithPagination(0);
+        assert order.size() == 1;
+    }
+
 }

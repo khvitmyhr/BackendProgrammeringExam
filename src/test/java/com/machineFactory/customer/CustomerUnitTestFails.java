@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class CustomerUnitTest {
+public class CustomerUnitTestFails {
 
     @MockBean
     CustomerRepo customerRepo;

@@ -1,20 +1,30 @@
 package com.machineFactory.machine;
 
-import com.machineFactory.Controller.MachineController;
-import com.machineFactory.Repository.MachineRepo;
+import com.machineFactory.Service.MachineService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
-@Transactional
 public class MachineIntegrationTest {
+
     @Autowired
-    private MachineController machineController;
-    @Autowired
-    private MachineRepo machineRepo;
+    MachineService machineService;
 
     @Test
-    public void testMachine(){}
+    @Transactional
+    void shouldFetchAllMachinesEquals2(){
+
+        var machines = machineService.getAllMachinesWithPagination(0);
+        assert machines.size() == 2;
+    }
+
+    @Test
+    @Transactional
+    void shouldFetchMachinesFromPage1ShouldAsseryEmpty(){
+
+        var machines = machineService.getAllMachinesWithPagination(1);
+        assert machines.isEmpty();
+    }
 }
