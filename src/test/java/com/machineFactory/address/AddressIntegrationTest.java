@@ -43,4 +43,4 @@ public class AddressIntegrationTest {
     }
 }
 
-//Test from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentIntegrationTest.java
+//shouldFetchAddresses from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentIntegrationTest.java
