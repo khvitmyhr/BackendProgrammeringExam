@@ -1,7 +1,6 @@
 package com.machineFactory.address;
 
 import com.machineFactory.Repository.AddressRepo;
-import com.machineFactory.Repository.CustomerRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
