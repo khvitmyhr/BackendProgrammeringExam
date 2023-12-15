@@ -26,6 +26,10 @@ public class PartService {
         return partRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
     }
 
+    public List<Part> getAllParts() {
+        return partRepo.findAll();
+    }
+
     public Part createPart(Part part) {
         return partRepo.save(part);
     }
