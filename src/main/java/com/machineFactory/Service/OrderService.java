@@ -1,6 +1,5 @@
 package com.machineFactory.Service;
 
-import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Repository.OrderRepo;
@@ -26,6 +25,10 @@ public class OrderService {
 
     public List<OrderModel> getAllOrdreWithPagination(int pageNumber) {
         return orderRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    }
+
+    public List<OrderModel> getAllOrders() {
+        return orderRepo.findAll();
     }
 
     public OrderModel createOrderModel(OrderModel orderModel) {
