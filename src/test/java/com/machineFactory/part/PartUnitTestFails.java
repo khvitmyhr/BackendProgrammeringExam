@@ -34,7 +34,7 @@ public class PartUnitTestFails {
 
     @Test
     public void getAllParts() {
-        Part part = partRepo.save(new Part("Kjell"));
+        Part part = partRepo.save(new Part("Nail"));
 
         Mockito.when(partService.findPartById(1L)).thenReturn(part);
 
@@ -44,7 +44,7 @@ public class PartUnitTestFails {
         List<Part> listOfCustomers = partService.getAllPartsWithPagination(0);
 
         assertThat(listOfCustomers.size()).isEqualTo(1);
-        assertThat(listOfCustomers.get(0).getPartName()).isEqualTo("Kjell");
+        assertThat(listOfCustomers.get(0).getPartName()).isEqualTo("Nail");
 
     }
 }
