@@ -18,6 +18,8 @@ Our system is fundamentelly based on Jasons Repository on github, and write alon
 Mainly code is used from these repositories:
 Vet-clinic: https://github.com/jlwcrews2/vet-clinic/tree/main
 JPA-demo: https://github.com/jlwcrews2/jpa-demo/tree/master
+Source used for post and delete method: https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
+
 
 We made a system where each machine consists of multipple subassmelblies, and each
 subassemlies consists of multiplle parts.
