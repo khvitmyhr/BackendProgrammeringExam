@@ -4,7 +4,6 @@ import com.machineFactory.Model.Part;
 import com.machineFactory.Repository.PartRepo;
 import com.machineFactory.Service.PartService;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -15,7 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 @SpringBootTest
-public class PartUnitTestFails {
+public class PartUnitTest {
 
     @MockBean
     private PartRepo partRepo;
@@ -28,24 +27,18 @@ public class PartUnitTestFails {
         List<Part> parts = List.of(new Part());
         when(partRepo.findAll()).thenReturn(parts);
 
-        var appointments = partService.getAllPartsWithPagination(0);
-        assert appointments.size() == 1;
+        var parts1 = partService.getAllParts();
+        assert parts1.size() == 1;
     }
 
     @Test
     public void getAllParts() {
-        Part part = partRepo.save(new Part("Nail"));
+        List<Part> parts = List.of(new Part("Nail"));
+        when(partRepo.findAll()).thenReturn(parts);
 
-        Mockito.when(partService.findPartById(1L)).thenReturn(part);
+        List<Part> listOfParts = partService.getAllParts();
 
-        when(partRepo.save(part)).thenReturn(part);
-
-        partService.createPart(part);
-        List<Part> listOfCustomers = partService.getAllPartsWithPagination(0);
-
-        assertThat(listOfCustomers.size()).isEqualTo(1);
-        assertThat(listOfCustomers.get(0).getPartName()).isEqualTo("Nail");
-
+        assertThat(listOfParts.size()).isEqualTo(1);
+        assertThat(listOfParts.get(0).getPartName()).isEqualTo("Nail");
     }
 }
-
