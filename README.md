@@ -13,6 +13,10 @@ And also creating a custome/address and add an address/customer to it.
 For now our system is created so that one machine can only be sold in one order.
 Out fabric only produces and machine of each, so this is by purpose a one to many relationship.
 
+We discovered some difficulties with out unit tests for the classes Customer og Address.
+In the class "CustomerUnitTest"; the test runs fine if you comment out the sammple data from commandlinerunner.
+Otherwise tha tests creashes with a nullpointexpeption. We have been trying 
+
 Resources:
 Our system is fundamentelly based on Jasons Repository on github, and write along in class.
 Mainly code is used from these repositories:
