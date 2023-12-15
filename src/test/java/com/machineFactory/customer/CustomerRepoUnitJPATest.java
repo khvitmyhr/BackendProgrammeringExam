@@ -12,6 +12,13 @@ public class CustomerRepoUnitJPATest {
     @Autowired
     private CustomerRepo customerRepo;
 
+
+    @Test
+    public void CustomerTestRepo(){
+        Customer customer = new Customer("Ivers");
+        customerRepo.save(customer);
+    }
+
     @Test
     void addressOnCustomer(){
         Customer customer = customerRepo.findById(1L).get();
