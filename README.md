@@ -13,11 +13,11 @@ We have also included som extra functionality such as Responsentity and Faker,
 and also created a customer/address and added an address/customer to.
 
 For now our system is created so that only one machine can be sold in per order.
-Our factory only produces one machine of each, this is by purpose a one to many relationship.
+Our factory only produces one machine of each type, this is by purpose a one to many relationship.
 
 We discovered some difficulties with our unit tests for the classes Customer og Address.
-In the class "CustomerUnitTest"; the test runs fine if you comment out the sammple data from commandlinerunner.
-Otherwise tha tests creashes with a nullpointexpeption. We have tried several different approaches and fixes, but have yet to find a solution. 
+In the class "CustomerUnitTest"; the test runs fine if you comment out the sample data from commandlinerunner.
+Otherwise the tests crashes with a nullpointexception. We have tried several different approaches and fixes, but have yet to find a solution. 
 
 Resources:
 Our system are based on Jasons Repository on github, and code written in class.
