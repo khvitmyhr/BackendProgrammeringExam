@@ -26,7 +26,7 @@ public class PartController {
     }
 
     @GetMapping
-    public List<Part> getAllPars(){
+    public List<Part> getAllParts(){
         return partService.getAllParts();
     }
 
