@@ -1,57 +1,28 @@
+About our project:
 
-Generelt når den ikke skal vite om den andre, skal da manyToOne
-inn i den klassen?
+You can run the system from Main (file BackendProgrammeringExamApplication).
+This vil let you see the system from Postman or H2.
 
-Part --> subassambly --> machine
+The tests can be ran from each file in the test folder.
 
-Lage fabrikk hvor:
-Kjøretøy.
+Our system is complete including all functionallity and all tests.
+We have implemnteted DataJPATest and SpringBootTest.
+We have also included som extra functionallity such as Responsentity and Faker.
+And also creating a custome/address and add an address/customer to it.
 
-1 kjøretøy: traktor
-3 subassambly: motor, girkasse, karosseri
-part: stempel, sylindre, skruer, tannhjul, aksel, 
+For now our system is created so that one machine can only be sold in one order.
+Out fabric only produces and machine of each, so this is by purpose a one to many relationship.
 
+About our tests:
+Our EndToEnd tests and integration tests worls properly.
+Tho did we have som difficulties on our Unit MockBean tests, keep failiing.
 
-kan bruke denne for å poste i customer:
-{
-"customerName": "Odrunn",
-"customerEmail": "Odd_ru@hotmail.com",
-"addresses": [
-{
-"street": "Luvisesgate 9",
-"zipCode": 3559,
-"city": "Oslo"
-}
-],
-"orders": []
-}
-]
-
-Kan kjøre denne spørringen i h2 for å se customer og address:
-SELECT *
-FROM customer_address
-JOIN address ON address.address_id = customer_address.address_id
-JOIN customer ON customer.customer_id = customer_address.customer_id;
+Resources:
+Our system is fundamentelly based on Jasons Repository on github, and write along in class.
+Mainly code is used from these repositories:
+Vet-clinic: https://github.com/jlwcrews2/vet-clinic/tree/main
+JPA-demo: https://github.com/jlwcrews2/jpa-demo/tree/master
 
 
-
-Kode for opprette order, men får 500 feil, vet ikke hvorfor
-
-{
-"customer": "Kirsti",
-"machines": [
-{
-"machineName": "Chainsaw",
-"subassemblies": [
-{
-"subassemblyName": "Chain",
-"parts": [
-{
-"partName": "Sawtooth"
-}
-]
-}
-]
-}
-]
-}
+We made a system where each machine consists of multipple subassmelblies, and each
+subassemlies consists of multiplle parts.
