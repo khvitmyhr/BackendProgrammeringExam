@@ -45,9 +45,10 @@ public class BackendProgrammeringExamApplication {
             ) {
 
             return args -> {
-                    boolean env = Boolean.parseBoolean(environment.getProperty("BackendProgrammeringExam/src/main/resources/application.yml"));
+                    Boolean env = environment.getProperty("testdata",  Boolean.class, false);
 
                     if (env) {
+
                         //Faker that generates customers and addresses
                         for (int i = 0; i < 5; i++) {
                             Customer customer = customerRepo.save(new Customer(faker.name().fullName(), faker.internet().emailAddress()));
