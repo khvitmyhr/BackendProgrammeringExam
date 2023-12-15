@@ -23,7 +23,6 @@ public class OrderModel {
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
-    //@JsonIgnoreProperties("addresses")
     private Customer customer;
 
     @OneToMany(cascade = CascadeType.ALL)
