@@ -30,6 +30,11 @@ public class MachineController {
         return machineService.getAllMachinesWithPagination(pageNr);
     }
 
+    @GetMapping
+    public List<Machine> getAllMachines(){
+        return machineService.getAllMachines();
+    }
+
     @PostMapping
     public Machine createMachine(@RequestBody Machine machine) {
         return machineService.createMachine(machine);
