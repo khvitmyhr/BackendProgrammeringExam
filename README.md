@@ -13,16 +13,11 @@ And also creating a custome/address and add an address/customer to it.
 For now our system is created so that one machine can only be sold in one order.
 Out fabric only produces and machine of each, so this is by purpose a one to many relationship.
 
-About our tests:
-Our EndToEnd tests and integration tests worls properly.
-Tho did we have som difficulties on our Unit MockBean tests, keep failiing.
-
 Resources:
 Our system is fundamentelly based on Jasons Repository on github, and write along in class.
 Mainly code is used from these repositories:
 Vet-clinic: https://github.com/jlwcrews2/vet-clinic/tree/main
 JPA-demo: https://github.com/jlwcrews2/jpa-demo/tree/master
-
 
 We made a system where each machine consists of multipple subassmelblies, and each
 subassemlies consists of multiplle parts.
