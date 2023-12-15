@@ -24,7 +24,7 @@ public class PartIntegrationTest {
 
     @Test
     @Transactional
-    void shouldFetchPartsFromPage1ShouldAsseryEmpty(){
+    void shouldFetchPartsFromPage1ShouldAssertEmpty(){
 
         var machines = partService.getAllPartsWithPagination(1);
         assert machines.isEmpty();
