@@ -9,6 +9,9 @@ spring:
   h2:
     console:
       enabled: true
+  test:
+    observability:
+      auto-configure: false
   jpa:
     hibernate:
       ddl-auto: update

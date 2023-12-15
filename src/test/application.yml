@@ -6,9 +6,11 @@ spring:
     driverClassName: org.h2.Driver
     generate-unique-name: false
     name: machine_fabric_test
+    test: true
   h2:
     console:
       enabled: true
+  test: true
   jpa:
     hibernate:
       ddl-auto: update
