@@ -23,7 +23,6 @@ public class BackendProgrammeringExamApplication {
         @Autowired
         private Environment environment;
 
-
         Faker faker = new Faker();
         @Bean
         CommandLineRunner commandLineRunner(
@@ -45,9 +44,9 @@ public class BackendProgrammeringExamApplication {
             ) {
 
             return args -> {
-                    Boolean env = environment.getProperty("testdata",  Boolean.class, false);
+                    Boolean environmentCheck = environment.getProperty("testdata",  Boolean.class, false);
 
-                    if (env) {
+                    if (environmentCheck) {
 
                         //Faker that generates customers and addresses
                         for (int i = 0; i < 5; i++) {
@@ -99,7 +98,6 @@ public class BackendProgrammeringExamApplication {
                         customers.add(customer2);
                         address2.setCustomers(customers);
                         addressRepo.save(address2);
-
                     }
             };
         }
