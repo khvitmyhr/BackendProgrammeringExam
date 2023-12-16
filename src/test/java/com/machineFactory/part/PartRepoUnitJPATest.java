@@ -14,8 +14,8 @@ public class PartRepoUnitJPATest {
     PartRepo partRepo;
     @Test
     void shouldFetchAllPartsExpectsEquals4(){
-        List<Part> pars = partRepo.findAll();
-        assert pars.size() == 4;
+        List<Part> parts = partRepo.findAll();
+        assert parts.size() == 4;
     }
 
     @Test
