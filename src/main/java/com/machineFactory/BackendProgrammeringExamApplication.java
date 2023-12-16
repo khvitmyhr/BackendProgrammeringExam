@@ -56,10 +56,10 @@ public class BackendProgrammeringExamApplication {
                             customerRepo.save(customer);
                         }
 
-                        Part pistonPart = new Part("Piston"); //Stempel
+                        Part pistonPart = new Part("Piston");
                         Part cylinderPart = new Part("Cylinder");
-                        Part shaftPart = new Part("Shaft"); //aksel
-                        Part sawtoothPart = new Part("Sawtooth"); //Sagtann
+                        Part shaftPart = new Part("Shaft");
+                        Part sawtoothPart = new Part("Sawtooth");
 
                         partsForMotor.add(pistonPart);
                         partsForMotor.add(cylinderPart);

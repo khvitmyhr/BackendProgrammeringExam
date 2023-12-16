@@ -30,7 +30,6 @@ public class Customer {
     private String customerEmail;
 
 
-
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "customer_address",

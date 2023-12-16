@@ -17,8 +17,6 @@ import java.util.List;
 @Entity
 public class Subassembly {
 
-    //Undermontering?
-
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "subassembly_seq_gen")
     @SequenceGenerator(name = "subassembly_seq_gen", sequenceName = "subassembly_seq", allocationSize = 1)

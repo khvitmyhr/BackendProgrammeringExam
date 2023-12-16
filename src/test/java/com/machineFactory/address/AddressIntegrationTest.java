@@ -32,7 +32,6 @@ public class AddressIntegrationTest {
         assert address.getCity().equals("Helgeland");
     }
 
-
     @Test
     void shouldFetchAddresses() throws Exception {
         mockMvc.perform(get("/api/address"))
