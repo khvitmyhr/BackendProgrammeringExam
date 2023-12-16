@@ -42,5 +42,4 @@ public class AddressIntegrationTest {
                 });
     }
 }
-
 //shouldFetchAddresses from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentIntegrationTest.java

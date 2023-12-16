@@ -14,13 +14,13 @@ public class CustomerRepoUnitJPATest {
 
 
     @Test
-    public void CustomerTestRepo(){
+    public void SaveACustomerToRepo(){
         Customer customer = new Customer("Ivers");
         customerRepo.save(customer);
     }
 
     @Test
-    void addressOnCustomer(){
+    void puAddressOnCustomer(){
         Customer customer = customerRepo.findById(1L).get();
         assert customer.getAddresses().size() == 1;
     }
