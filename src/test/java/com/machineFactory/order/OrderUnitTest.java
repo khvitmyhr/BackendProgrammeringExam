@@ -32,21 +32,22 @@ public class OrderUnitTest {
         assert order1.size() == 2;
     }
 
-    //Were not able to make this test work
-//    @Test
-//    public void getAllOrders() {
-//        ArrayList<Subassembly> sub = new ArrayList<>();
-//        ArrayList<Machine> mach =new ArrayList<>();
-//        mach.addAll(sub);
-//        Customer customer = new Customer("Harry");
-//        Machine mach = new Machine("Tractor", sub);
-//
-//        List<OrderModel> orderModels = List.of(new OrderModel(customer, mach);
-//        when(orderRepo.findAll()).thenReturn(orderModels);
-//
-//        List<OrderModel> listOfOrders = orderService.getAllOrders();
-//
-//        assertThat(listOfOrders.size()).isEqualTo(1);
-//        assertThat(listOfOrders.get(0).getCustomer()).isEqualTo("Harry");
-//    }
+
+    @Test
+    public void getAllOrdersCheckAmountCheckName() {
+        ArrayList<Subassembly> sub = new ArrayList<>();
+        ArrayList<Machine> machines =new ArrayList<>();
+
+        machines.add(new Machine("Tractor", sub));
+
+        Customer customer = new Customer("Harry");
+
+        List<OrderModel> orderModels = List.of(new OrderModel(customer, machines));
+        when(orderRepo.findAll()).thenReturn(orderModels);
+
+        List<OrderModel> listOfOrders = orderService.getAllOrders();
+
+        assertThat(listOfOrders.size()).isEqualTo(1);
+        assertThat(listOfOrders.get(0).getCustomer().getCustomerName()).isEqualTo("Harry");
+    }
 }
