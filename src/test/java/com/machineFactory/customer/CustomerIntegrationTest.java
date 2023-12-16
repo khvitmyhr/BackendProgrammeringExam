@@ -1,17 +1,33 @@
 package com.machineFactory.customer;
 
+import com.machineFactory.Controller.CustomerController;
 import com.machineFactory.Model.Customer;
+import com.machineFactory.Repository.CustomerRepo;
 import com.machineFactory.Service.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
 @SpringBootTest
+@AutoConfigureMockMvc
 public class CustomerIntegrationTest {
 
         @Autowired
         CustomerService customerService;
+
+        @Autowired
+        CustomerRepo customerRepo;
+
+        @Autowired
+        CustomerController customerController;
 
         @Test
         @Transactional
@@ -38,12 +54,25 @@ public class CustomerIntegrationTest {
             assert customer.getCustomerEmail().equals("jonas@gmail.com");
         }
 
-    @Test
-    public void testCustomer(){
-        //Customer customer = new Customer("Ivar");
-        //customerRepo.save(customer);
-        //Customer Customer = customerController.getCustomerById(customer.getCustomerId());
-        //assertEquals(HttpStatus.OK, Customer.());
-        // assertEquals("Ivar", Customer.getCustomerName());
-    }
+
+        @Autowired
+        MockMvc mockMvc;
+        @Test
+        void shouldFetchCustomers() throws Exception {
+            mockMvc.perform(get("/api/customer"))
+                    .andExpect(status().isOk())
+                    .andDo(result -> {
+                        System.out.println(result.getResponse().getContentAsString());
+                    });
+        }
+
+        @Test
+        public void testCustomer(){
+          Customer customer = new Customer("Ivar");
+          customerRepo.save(customer);
+
+          Customer Customer = customerController.getCustomerById(customer.getCustomerId());
+          assert (true);
+          assertEquals("Ivar", Customer.getCustomerName());
+      }
 }
