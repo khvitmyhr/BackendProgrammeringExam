@@ -25,5 +25,6 @@ The code is mainly based on these repositories:
 Vet-clinic: https://github.com/jlwcrews2/vet-clinic/tree/main
 JPA-demo: https://github.com/jlwcrews2/jpa-demo/tree/master
 Source used for post and delete method: https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
+Source used for test/prod code environment: https://www.baeldung.com/spring-boot-properties-env-variables
 
 
