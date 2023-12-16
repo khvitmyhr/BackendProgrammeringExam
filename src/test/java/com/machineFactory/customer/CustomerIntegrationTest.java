@@ -57,6 +57,8 @@ public class CustomerIntegrationTest {
 
         @Autowired
         MockMvc mockMvc;
+
+        //Test from Jason repo
         @Test
         void shouldFetchCustomers() throws Exception {
             mockMvc.perform(get("/api/customer"))
@@ -65,6 +67,7 @@ public class CustomerIntegrationTest {
                         System.out.println(result.getResponse().getContentAsString());
                     });
         }
+
 
         @Test
         public void testCustomer(){
