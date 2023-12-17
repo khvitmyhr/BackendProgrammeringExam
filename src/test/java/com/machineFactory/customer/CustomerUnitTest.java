@@ -22,7 +22,8 @@ public class CustomerUnitTest {
     @Autowired
     CustomerService customerService;
 
-    //This test fails when you have test data in commandline runner, see more in ReadMe
+    //This test fails when you have test data in commandline runner available, see more in ReadMe.
+    //By adding an exclamation mark in the if-statement in Main class l:41, this test run properly
     @Test
      public void shouldreturn1CustomerFromMockedRepo() {
 
