@@ -21,7 +21,7 @@ We tried to solve this by having two environments for test and prod code.
 
 This happens in the two classes "CustomerUnitTest" and "AddressUnitTest".
 The test runs fine if you remove the sample data from commandlinerunner (this can be done
-by adding an exclamation mark in the if in Main class l:41) --> typing  if (!environmentCheck) {}.
+by adding an exclamation mark in the if-statement in Main class l:41) --> typing  if (!environmentCheck) {}.
 Otherwise the tests crashes with a nullpointexception. We have tried several different approaches to fix this problem.
 
 Resources:
