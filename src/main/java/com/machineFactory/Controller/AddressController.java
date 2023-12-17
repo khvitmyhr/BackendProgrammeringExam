@@ -50,4 +50,11 @@ public class AddressController {
         }
         return new ResponseEntity<>("No address with this id", HttpStatus.NOT_FOUND);
     }
+
+    //Code to create address to existing customer in postman.
+    //Using pathvariable ID the find customer. Did not work properly.
+//    @PostMapping("/customerId/{id}")
+//    public Customer createAddressToCustomer(@RequestBody Address address, @PathVariable Long id) {
+//        return customerService.addAddressToCustomer(address, id);
+//    }
 }

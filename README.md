@@ -24,7 +24,8 @@ Otherwise the tests crashes with a nullpointexception. We have tried several dif
 We also had a plan for the point:
 "Additional functionality can be added, such as: Create a customer, and add an address to it Create an address and add it to a customer....."
 We wanted it to be possible to create a customer/address in postman, and then add a customer/address to id.
-This would not work properly, and we only got a "null" in return.
+This would not work properly, and we only got a "null" in return. We also did not like how this code got to completed
+mixing different domene-objects in same class etc. This is not how we wanted it to be.
 We then did these points from Commandline runner instead like the example from Jason repo.
 We have some code written for our original plan, which we have left in the project,
 but added comments to it so you can see the code we talk about.

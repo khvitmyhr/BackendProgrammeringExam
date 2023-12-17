@@ -52,8 +52,7 @@ public class CustomerService {
     }
 
 
-
-    // Kode for å legge til addresse til eksisterende kunde. Mulig fjerne denne
+    //See comment in CustomerController/readme for this cancelled method.
     public Customer addAddressToCustomer(Address address, Long id) {
         //Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
         Customer customerToUpdate = findCustomerById(id);

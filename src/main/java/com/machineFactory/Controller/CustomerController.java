@@ -1,5 +1,6 @@
 package com.machineFactory.Controller;
 
+import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,5 +52,14 @@ public class CustomerController {
             return new ResponseEntity<>("Customer updated", HttpStatus.OK);
         }
         return new ResponseEntity<>("No customer with this id", HttpStatus.NOT_FOUND);
+    }
+
+
+    //This next method was originally made from adding an address object to an existing customer through
+    //PostMan, but we did not go further with this one since it didn`t work and we did in
+    //from commandlinerunner instad.
+    @PostMapping("/customerId/{id}")
+    public Customer createAddressToCustomer(@RequestBody Address address, @PathVariable Long id) {
+        return customerService.addAddressToCustomer(address, id);
     }
 }

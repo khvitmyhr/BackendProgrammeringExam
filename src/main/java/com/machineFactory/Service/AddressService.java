@@ -46,4 +46,15 @@ public class AddressService {
         }
         return false;
     }
+
+//Code for adding address to existing customer through postman. Did not go thurder.
+//    public Customer addAddressToCustomer(Address address, Long id) {
+//        //Address address1 = new Address(address.getStreet(), address.getZipCode(), address.getCity());
+//        Customer customerToUpdate = findCustomerById(id);
+//        ArrayList<Address> list = new ArrayList<>();
+//        list.add(address);
+//        customerToUpdate.setAddresses(list);
+//        return customerRepo.save(customerToUpdate);
+//    }
 }
+
