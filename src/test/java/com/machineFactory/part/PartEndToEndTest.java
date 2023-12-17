@@ -47,7 +47,7 @@ public class PartEndToEndTest {
                 .andExpect(status().isOk());
     }
 
-    //Helper method for the post Test, from the source page.
+    //Helper method for the post method, source in Readme.
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);

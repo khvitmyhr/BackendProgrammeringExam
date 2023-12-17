@@ -50,7 +50,6 @@ public class AddressEndToEndTest {
 
 
     //Source used for post and delete method: https://howtodoinjava.com/spring-boot2/testing/spring-boot-mockmvc-example/
-
     //Helper method for the post Test, from the source page.
     public static String asJsonString(final Object obj) {
         try {

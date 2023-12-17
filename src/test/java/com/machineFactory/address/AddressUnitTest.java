@@ -1,11 +1,8 @@
 package com.machineFactory.address;
 
 import com.machineFactory.Model.Address;
-import com.machineFactory.Model.Customer;
 import com.machineFactory.Repository.AddressRepo;
-import com.machineFactory.Repository.CustomerRepo;
 import com.machineFactory.Service.AddressService;
-import com.machineFactory.Service.CustomerService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,7 +22,7 @@ public class AddressUnitTest {
     @Autowired
     AddressService addressService;
 
-    //This test fails when you have test data in commandline runner, see more in ReadMe
+    //This test fails when you have test data in commandline runner available, see more in ReadMe
     @Test
     public void shouldreturn1AddressFromMockedRepo() {
 

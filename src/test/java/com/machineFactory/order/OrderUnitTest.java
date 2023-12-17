@@ -23,6 +23,8 @@ public class OrderUnitTest {
     @Autowired
     private OrderService orderService;
 
+
+    //getOrders from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentServiceUnitTest.java
     @Test
     public void getOrders() {
         List<OrderModel> orders = List.of(new OrderModel(), new OrderModel());
@@ -31,7 +33,6 @@ public class OrderUnitTest {
         var order1 = orderService.getAllOrders();
         assert order1.size() == 2;
     }
-
 
     @Test
     public void getAllOrdersCheckAmountCheckName() {

@@ -24,9 +24,15 @@ public class MachineIntegrationTest {
     @Test
     @Transactional
     void shouldFetchAllMachinesEquals2(){
-
         var machines = machineService.getAllMachinesWithPagination(0);
         assert machines.size() == 2;
+    }
+
+    @Test
+    @Transactional
+    void shouldFetchAllMachinesEqualsFromPag1ExpectIsEmpty(){
+        var machines = machineService.getAllMachinesWithPagination(1);
+        assert machines.isEmpty();
     }
 
     @Test
@@ -37,11 +43,20 @@ public class MachineIntegrationTest {
         assert machines.isEmpty();
     }
 
-    //Test from Jason repo
+    //Test from Jason repo, see readme for resource
     @Test
     void shouldFetchMachines() throws Exception {
         mockMvc.perform(get("/api/machine"))
                 .andExpect(status().isOk())
+                .andDo(result -> {
+                    System.out.println(result.getResponse().getContentAsString());
+                });
+    }
+
+    @Test
+    void shouldFetchMachinesNotFoundIfURLIsWrong() throws Exception {
+        mockMvc.perform(get("/api/machines"))
+                .andExpect(status().isNotFound())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());
                 });

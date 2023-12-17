@@ -12,7 +12,6 @@ public class CustomerRepoUnitJPATest {
     @Autowired
     private CustomerRepo customerRepo;
 
-
     @Test
     public void SaveACustomerToRepo(){
         Customer customer = new Customer("Ivers");
@@ -20,10 +19,10 @@ public class CustomerRepoUnitJPATest {
     }
 
     @Test
-    void puAddressOnCustomer(){
+    void putAddressOnCustomer(){
         Customer customer = customerRepo.findById(1L).get();
         assert customer.getAddresses().size() == 1;
     }
 }
 
-//Test from Jason repo: https://github.com/jlwcrews2/jpa-demo/blob/master/src/test/java/no/jlwcrews/jpademo/DBUnitTesting.java
+//Tests from Jason repo: https://github.com/jlwcrews2/jpa-demo/blob/master/src/test/java/no/jlwcrews/jpademo/DBUnitTesting.java

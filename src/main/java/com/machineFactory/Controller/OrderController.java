@@ -1,6 +1,5 @@
 package com.machineFactory.Controller;
 
-
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
 
 @RestController
 @RequestMapping("/api/order")
@@ -46,7 +44,6 @@ public class OrderController {
     public void deleteOrderById(@PathVariable Long id) {
         orderService.deleteOrder(id);
     }
-
 
     //If you want to change customer for the order. Må finne en annen måte, denne må få tilsendt et nytt customer-
     //objekt, ikke en string.

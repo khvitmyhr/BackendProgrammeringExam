@@ -29,12 +29,20 @@ public class OrderIntegrationTest {
         assert order.size() == 1;
     }
 
-
-    //Test from Jason repo
+    //Tests from Jason repo, source in readMe
     @Test
     void shouldFetchOrders() throws Exception {
         mockMvc.perform(get("/api/order"))
                 .andExpect(status().isOk())
+                .andDo(result -> {
+                    System.out.println(result.getResponse().getContentAsString());
+                });
+    }
+
+    @Test
+    void shouldFetchOrdersExpectNotFoundWithWrongURL() throws Exception {
+        mockMvc.perform(get("/api/orders"))
+                .andExpect(status().isNotFound())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());
                 });

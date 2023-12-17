@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,7 +31,6 @@ public class CustomerIntegrationTest {
         @Test
         @Transactional
         void shouldFetchAllCustomers(){
-
             var customers = customerService.getAllCustomers();
             assert customers.size() == 8;
         }
@@ -58,7 +56,7 @@ public class CustomerIntegrationTest {
         @Autowired
         MockMvc mockMvc;
 
-        //Test from Jason repo
+        //Test from Jason repo, see source in ReedMe
         @Test
         void shouldFetchCustomers() throws Exception {
             mockMvc.perform(get("/api/customer"))
@@ -67,7 +65,14 @@ public class CustomerIntegrationTest {
                         System.out.println(result.getResponse().getContentAsString());
                     });
         }
-
+        @Test
+        void shouldFetchCustomersExpectNotFoundWithWrongURL() throws Exception {
+            mockMvc.perform(get("/api/customeres"))
+                    .andExpect(status().isNotFound())
+                    .andDo(result -> {
+                        System.out.println(result.getResponse().getContentAsString());
+                    });
+        }
 
         @Test
         public void testCustomer(){

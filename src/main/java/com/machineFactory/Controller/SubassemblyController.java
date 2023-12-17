@@ -23,7 +23,6 @@ public class SubassemblyController {
         return subassemblyService.findSubassemblyById(id);
     }
 
-
     @GetMapping("/page/{pageNr}")
     public List<Subassembly> getSubassemblyByPage(@PathVariable int pageNr) {
         return subassemblyService.getAllSubassemblysWithPagination(pageNr);

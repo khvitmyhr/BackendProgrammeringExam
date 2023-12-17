@@ -1,6 +1,5 @@
 package com.machineFactory.Controller;
 
-
 import com.machineFactory.Model.Machine;
 import com.machineFactory.Service.MachineService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +38,7 @@ public class MachineController {
     public Machine createMachine(@RequestBody Machine machine) {
         return machineService.createMachine(machine);
     }
+
     @DeleteMapping("/{id}")
     public void deleteMachineById(@PathVariable Long id) {
         machineService.deleteMachine(id);

@@ -46,7 +46,7 @@ public class PartIntegrationTest {
         assert machines.getPartName().equals("Screw");
     }
 
-    //Test from Jason repo
+    //Test from Jason repo, source in readme
     @Test
     void shouldFetchParts() throws Exception {
         mockMvc.perform(get("/api/part"))

@@ -33,7 +33,16 @@ public class AddressIntegrationTest {
     }
 
     @Test
-    void shouldFetchAddresses() throws Exception {
+    void shouldFetchAddressesExpectNotFoundWithWrongURL() throws Exception {
+        mockMvc.perform(get("/api/addresseses"))
+                .andExpect(status().isNotFound())
+                .andDo(result -> {
+                    System.out.println(result.getResponse().getContentAsString());
+                });
+    }
+
+    @Test
+    void shouldFetchAddressesExpectIsOk() throws Exception {
         mockMvc.perform(get("/api/address"))
                 .andExpect(status().isOk())
                 .andDo(result -> {
@@ -41,4 +50,4 @@ public class AddressIntegrationTest {
                 });
     }
 }
-//shouldFetchAddresses from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentIntegrationTest.java
+//shouldFetchAddresses is from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentIntegrationTest.java

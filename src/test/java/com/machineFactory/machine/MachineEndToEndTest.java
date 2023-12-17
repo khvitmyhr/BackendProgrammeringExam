@@ -29,12 +29,10 @@ public class MachineEndToEndTest {
                 .andExpect(status().isNotFound());
     }
 
-
     @Test
     public void shouldDeleteFirstMachineGet200() throws Exception {
         mockMvc.perform(delete("/api/machine/1"))
                 .andExpect(status().isOk());
     }
-
 }
 

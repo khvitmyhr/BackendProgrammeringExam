@@ -14,17 +14,16 @@ public class SubassemblyRepoUnitJPATest {
 
     @Autowired
     SubassemblyRepo subassemblyRepo;
+
     @Test
     void shouldFetchAllsubassemblyesExpectsEquals4(){
         List<Subassembly> subassemblies = subassemblyRepo.findAll();
         assert subassemblies.size() == 3;
     }
-
-    //Test runs but works not properly
     @Test
-    void confirmNameOnSubassemblye(){
-        Subassembly subassembly = subassemblyRepo.findById(1L).get();
-        assertThat(subassembly.getSubassemblyName().equals("Motor"));
+    void confirmNameOnSubassembly(){
+        Subassembly subassembly = subassemblyRepo.findById(2L).get();
+        assertThat(subassembly.getSubassemblyName()).isEqualTo("Motor");
     }
 }
 

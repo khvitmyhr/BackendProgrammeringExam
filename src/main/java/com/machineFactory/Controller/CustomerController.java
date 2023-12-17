@@ -1,6 +1,5 @@
 package com.machineFactory.Controller;
 
-import com.machineFactory.Model.Address;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +28,6 @@ public class CustomerController {
     @GetMapping("/page/{pageNr}")
     public List<Customer> getCustomerByPage(@PathVariable int pageNr) {
         return customerService.getAllCustomerWithPagination(pageNr);
-    }
-
-    //Kode for å legge til addresse til eksisterende. bruker ID i url for å identifisere og finne kunde
-    //Muligens fjerne denne, gjøre via main istedet
-    @PostMapping("/customerId/{id}")
-    public Customer createAddressToCustomer(@RequestBody Address address, @PathVariable Long id) {
-       return customerService.addAddressToCustomer(address, id);
     }
 
     @GetMapping

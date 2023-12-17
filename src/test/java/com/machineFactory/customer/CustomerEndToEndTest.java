@@ -49,6 +49,7 @@ public class CustomerEndToEndTest {
                 .andExpect(status().isOk());
     }
 
+    //Helper method for post method: see source in ReadMe
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);
