@@ -15,10 +15,12 @@ import java.util.List;
 public class CustomerService {
 
     private final CustomerRepo customerRepo;
+
     @Autowired
     CustomerService(CustomerRepo customerRepo) {
         this.customerRepo = customerRepo;
     }
+
     public Customer findCustomerById(Long id) {
         return customerRepo.findById(id).orElse(null);
     }
@@ -48,7 +50,6 @@ public class CustomerService {
         }
         return false;
     }
-
 
 
 

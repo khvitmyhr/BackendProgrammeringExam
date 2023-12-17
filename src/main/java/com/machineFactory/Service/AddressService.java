@@ -1,12 +1,10 @@
 package com.machineFactory.Service;
 import com.machineFactory.Model.Address;
-import com.machineFactory.Model.Customer;
 import com.machineFactory.Repository.AddressRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

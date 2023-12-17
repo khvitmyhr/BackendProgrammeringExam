@@ -29,6 +29,7 @@ public class SubassemblyService {
     public List<Subassembly> getAllSubassemblies() {
         return subassemblyRepo.findAll();
     }
+
     public Subassembly createSubassembly(Subassembly subassembly) {
         return subassemblyRepo.save(subassembly);
     }
@@ -46,5 +47,4 @@ public class SubassemblyService {
         }
         return false;
     }
-
 }
