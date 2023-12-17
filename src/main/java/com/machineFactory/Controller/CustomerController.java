@@ -56,8 +56,8 @@ public class CustomerController {
 
 
     //This next method was originally made from adding an address object to an existing customer through
-    //PostMan, but we did not go further with this one since it didn`t work and we did in
-    //from commandlinerunner instad.
+    //PostMan, but we did not go further with this one since it didn`t work and we did it
+    //from commandlinerunner instead.
     @PostMapping("/customerId/{id}")
     public Customer createAddressToCustomer(@RequestBody Address address, @PathVariable Long id) {
         return customerService.addAddressToCustomer(address, id);

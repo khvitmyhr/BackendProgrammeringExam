@@ -41,9 +41,9 @@ public class OrderService {
 
     public boolean updateNameOrderCustomer(Long id, String newName) {
         OrderModel order = orderRepo.findById(id).orElse(null);
+
         if (order != null) {
-            Customer customer = new Customer(newName);
-            order.setCustomer(customer);
+            order.getCustomer().setCustomerName(newName);
             orderRepo.save(order);
             return true;
         }

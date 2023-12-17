@@ -1,5 +1,6 @@
 package com.machineFactory.Controller;
 
+import com.machineFactory.Model.Customer;
 import com.machineFactory.Model.OrderModel;
 import com.machineFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,8 +46,6 @@ public class OrderController {
         orderService.deleteOrder(id);
     }
 
-    //If you want to change customer for the order. Må finne en annen måte, denne må få tilsendt et nytt customer-
-    //objekt, ikke en string.
     @PutMapping ("/customer/{id}/{newName}")
     public ResponseEntity<String> updateCustomerInOrder(@PathVariable Long id, @PathVariable String newName) {
         if (orderService.updateNameOrderCustomer(id, newName)) {
@@ -54,5 +53,4 @@ public class OrderController {
         }
         return new ResponseEntity<>("No customer with this id", HttpStatus.NOT_FOUND);
     }
-
 }
