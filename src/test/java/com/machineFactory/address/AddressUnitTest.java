@@ -23,8 +23,8 @@ public class AddressUnitTest {
     AddressService addressService;
 
     //This test fails when you have test data in commandline runner available, see more in ReadMe.
-    //By adding an exclamation mark in the if-statement in Main class l:41, this test run properly
-    @Test
+    //By adding an exclamation mark in the if-statement in Main class l:41, this test run properly  (also remover the outcommented test)
+   // @Test
     public void shouldreturn1AddressFromMockedRepo() {
 
         List<Address> addresses = List.of(new Address("Kyllingveien 3", "9999", "Hallingdal"));

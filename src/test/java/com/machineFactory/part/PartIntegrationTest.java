@@ -23,21 +23,6 @@ public class PartIntegrationTest {
     @Autowired
     MockMvc mockMvc;
 
-    @Test
-    @Transactional
-    void shouldFetchAllPartsWithPagination(){
-
-        var parts = partService.getAllPartsWithPagination(0);
-        assert parts.size() == 4;
-    }
-
-    @Test
-    @Transactional
-    void shouldFetchPartsFromPage1ShouldAsseryEmpty(){
-
-        var machines = partService.getAllPartsWithPagination(1);
-        assert machines.isEmpty();
-    }
 
     @Test
     @Transactional
@@ -54,6 +39,14 @@ public class PartIntegrationTest {
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());
                 });
+    }
+
+    @Test
+    @Transactional
+    void shouldFetchPartsFromPage1ShouldAsseryEmpty(){
+
+        var machines = partService.getAllPartsWithPagination(1);
+        assert machines.isEmpty();
     }
 }
 

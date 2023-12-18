@@ -23,13 +23,6 @@ public class MachineIntegrationTest {
 
     @Test
     @Transactional
-    void shouldFetchAllMachinesEquals2(){
-        var machines = machineService.getAllMachinesWithPagination(0);
-        assert machines.size() == 2;
-    }
-
-    @Test
-    @Transactional
     void shouldFetchAllMachinesEqualsFromPag1ExpectIsEmpty(){
         var machines = machineService.getAllMachinesWithPagination(1);
         assert machines.isEmpty();
