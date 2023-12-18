@@ -21,8 +21,8 @@ public class AddressService {
         return addressRepo.findById(id).orElse(null);
     }
 
-    public List<Address> getAllAddressesWithPagination(int pageNumber) {
-        return addressRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    public List<Address> getAllAddressesWithPagination(int pageNr) {
+        return addressRepo.findAll(PageRequest.of(pageNr, 5)).stream().toList();
     }
 
     public List<Address> getAllAddresses() {

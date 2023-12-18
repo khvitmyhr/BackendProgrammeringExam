@@ -22,8 +22,8 @@ public class SubassemblyService {
         return subassemblyRepo.findById(id).orElse(null);
     }
 
-    public List<Subassembly> getAllSubassemblysWithPagination(int pageNumber) {
-        return subassemblyRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    public List<Subassembly> getAllSubassemblysWithPagination(int pageNr) {
+        return subassemblyRepo.findAll(PageRequest.of(pageNr, 5)).stream().toList();
     }
 
     public List<Subassembly> getAllSubassemblies() {

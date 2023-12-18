@@ -25,8 +25,8 @@ public class CustomerService {
         return customerRepo.findById(id).orElse(null);
     }
 
-    public List<Customer> getAllCustomerWithPagination(int pageNumber) {
-        return customerRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    public List<Customer> getAllCustomerWithPagination(int pageNr) {
+        return customerRepo.findAll(PageRequest.of(pageNr, 5)).stream().toList();
     }
 
     public List<Customer> getAllCustomers() {

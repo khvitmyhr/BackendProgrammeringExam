@@ -22,8 +22,8 @@ public class MachineService {
         return machineRepo.findById(id).orElse(null);
     }
 
-    public List<Machine> getAllMachinesWithPagination(int pageNumber) {
-        return machineRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    public List<Machine> getAllMachinesWithPagination(int pageNr) {
+        return machineRepo.findAll(PageRequest.of(pageNr, 5)).stream().toList();
     }
 
     public List<Machine> getAllMachines() {

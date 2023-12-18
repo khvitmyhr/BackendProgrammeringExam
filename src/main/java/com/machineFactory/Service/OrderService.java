@@ -22,8 +22,8 @@ public class OrderService {
         return orderRepo.findById(id).orElse(null);
     }
 
-    public List<OrderModel> getAllOrdreWithPagination(int pageNumber) {
-        return orderRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    public List<OrderModel> getAllOrdreWithPagination(int pageNr) {
+        return orderRepo.findAll(PageRequest.of(pageNr, 5)).stream().toList();
     }
 
     public List<OrderModel> getAllOrders() {

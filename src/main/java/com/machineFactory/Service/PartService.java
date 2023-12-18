@@ -22,8 +22,8 @@ public class PartService {
         return partRepo.findById(id).orElse(null);
     }
 
-    public List<Part> getAllPartsWithPagination(int pageNumber) {
-        return partRepo.findAll(PageRequest.of(pageNumber, 5)).stream().toList();
+    public List<Part> getAllPartsWithPagination(int pageNr) {
+        return partRepo.findAll(PageRequest.of(pageNr, 5)).stream().toList();
     }
 
     public List<Part> getAllParts() {
