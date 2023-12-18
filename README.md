@@ -34,8 +34,8 @@ This would not work properly, and we only got a "null" in return. We also did no
 mixed different domain-objects in same class etc.
 We decided to do these points from Commandline runner instead, as in the example from Jason repo.
 We have some code written for our original plan, which we have left in the project,
-but added comments to it so you can see the code we are talking about.
-We also had difficulty with the put-method for addresses and customer, it works fine for all data expect
+but added comments to it, so you can see the code we are talking about.
+We also had difficulty with the put-method for addresses and customer, it works fine for all data except
 the first 5 created from faker.
 
 Resources:
