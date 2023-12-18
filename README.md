@@ -24,7 +24,7 @@ We tried to solve this by having two environments; for test and prod code.
 This only occur in the two classes "CustomerUnitTest" and "AddressUnitTest", since these get in conflict with the test
 data in commandlinerunner. The test runs fine if you remove the sample data from commandlinerunner (this can be done
 by adding an exclamation mark in the if-statement in Main class l:41) --> typing  if (!environmentCheck) {}.
-Otherwise the tests crashes with a nullpointexception. We tried several different approaches to fix this problem, but could not make
+Otherwise, the tests crashes with a nullpointexception. We tried several different approaches to fix this problem, but could not make
 it work.
 
 From the exam txt:
