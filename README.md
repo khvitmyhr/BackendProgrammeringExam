@@ -25,12 +25,12 @@ it work.
 From the exam txt:
 "Additional functionality can be added, such as: Create a customer, and add an address to it Create an address and add it to a customer....."
 Originally we wanted it to be possible to create a customer/address in postman, and then add a customer/address to id.
-This would not work properly, and we only got a "null" in return. We also did not like how this code got to completed
-mixing different domene-objects in same class etc.
-We then did these points from Commandline runner instead like the example from Jason repo.
+This would not work properly, and we only got a "null" in return. We also did not like how this code
+mixed different domain-objects in same class etc.
+We decided to do these points from Commandline runner instead, as in the example from Jason repo.
 We have some code written for our original plan, which we have left in the project,
-but added comments to it so you can see the code we talk about.
-We also have a difficulty with the put-method for addresses and customer, it works fine for all data expect
+but added comments to it so you can see the code we are talking about.
+We also had difficulty with the put-method for addresses and customer, it works fine for all data expect
 the first 5 created from faker.
 
 Resources:
