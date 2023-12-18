@@ -52,11 +52,4 @@ public class Customer {
     public Customer(String customerName) {
         this.customerName = customerName;
     }
-
-    public Customer(String customerName, String customerEmail, List<Address> addresses, List<OrderModel> orders) {
-        this.customerName = customerName;
-        this.customerEmail = customerEmail;
-        this.addresses = addresses;
-        this.orders = orders;
-    }
 }
