@@ -26,7 +26,7 @@ public class OrderUnitTest {
 
     //getOrders from Jason repo: https://github.com/jlwcrews2/vet-clinic/blob/main/src/test/java/no/jlwcrews/vetclinic/appointment/AppointmentServiceUnitTest.java
     @Test
-    public void getOrders() {
+    public void createTwoOrdersExpectEquals2() {
         List<OrderModel> orders = List.of(new OrderModel(), new OrderModel());
         when(orderRepo.findAll()).thenReturn(orders);
 

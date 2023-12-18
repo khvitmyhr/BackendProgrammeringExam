@@ -3,7 +3,6 @@ package com.machineFactory.customer;
 import com.machineFactory.Model.Customer;
 import com.machineFactory.Repository.CustomerRepo;
 import com.machineFactory.Service.CustomerService;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,9 +21,9 @@ public class CustomerUnitTest {
     @Autowired
     CustomerService customerService;
 
-    //This test fails when you have test data in commandline runner available, see more in ReadMe.
-    //By adding an exclamation mark in the if-statement in Main class l:41, this test run properly. (also remover the outcommented test)
 
+    //These tests fail when you have test data in commandline runner available, see more in ReadMe.
+    //By adding an exclamation mark in the if-statement in Main class l:41, this test run properly. (also remover the outcommented test)
 
     //@Test
      public void shouldreturn1CustomerFromMockedRepo() {
@@ -36,5 +35,14 @@ public class CustomerUnitTest {
 
         assertThat(listOfCustomers.size()).isEqualTo(1);
         assertThat(listOfCustomers.get(0).getCustomerName()).isEqualTo("Kjell");
+    }
+
+    //@Test
+    public void createTwoCustomersExpectEquals2() {
+        List<Customer> customers = List.of(new Customer(), new Customer());
+        when(customerRepo.findAll()).thenReturn(customers);
+
+        var customer = customerService.getAllCustomers();
+        assert customer.size() == 2;
     }
 }

@@ -22,7 +22,7 @@ public class AddressUnitTest {
     @Autowired
     AddressService addressService;
 
-    //This test fails when you have test data in commandline runner available, see more in ReadMe.
+    //These tests fail when you have test data in commandline runner available, see more in ReadMe.
     //By adding an exclamation mark in the if-statement in Main class l:41, this test run properly  (also remover the outcommented test)
    // @Test
     public void shouldreturn1AddressFromMockedRepo() {
@@ -36,5 +36,15 @@ public class AddressUnitTest {
         assertThat(listOfAddresses.get(0).getStreet()).isEqualTo("Kyllingveien 3");
         assertThat(listOfAddresses.get(0).getZipCode()).isEqualTo("9999");
         assertThat(listOfAddresses.get(0).getCity()).isEqualTo("Hallingdal");
+    }
+
+
+    //@Test
+    public void createTwoAddressesExpectEquals2() {
+        List<Address> addresses = List.of(new Address(), new Address());
+        when(addressRepo.findAll()).thenReturn(addresses);
+
+        var address = addressService.getAllAddresses();
+        assert address.size() == 2;
     }
 }

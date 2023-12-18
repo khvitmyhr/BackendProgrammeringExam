@@ -23,7 +23,7 @@ public class SubassemblyUnitTest {
     private SubassemblyService subassemblyService;
 
     @Test
-    public void getSubassemblies() {
+    public void createOneSubassemblyExpectEquals1() {
         List<Subassembly> subassemblies = List.of(new Subassembly());
         when(subassemblyRepo.findAll()).thenReturn(subassemblies);
 

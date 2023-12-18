@@ -23,7 +23,7 @@ public class PartUnitTest {
     private PartService partService;
 
     @Test
-    public void getParts() {
+    public void createOnePartExpectEquals1() {
         List<Part> parts = List.of(new Part());
         when(partRepo.findAll()).thenReturn(parts);
 
@@ -32,7 +32,7 @@ public class PartUnitTest {
     }
 
     @Test
-    public void getAllParts() {
+    public void getAllPartsAndConfirmCorrectName() {
         List<Part> parts = List.of(new Part("Nail"));
         when(partRepo.findAll()).thenReturn(parts);
 
