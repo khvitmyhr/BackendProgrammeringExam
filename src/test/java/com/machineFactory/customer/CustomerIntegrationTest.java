@@ -66,7 +66,7 @@ public class CustomerIntegrationTest {
         //Test from Jason repo, see source in ReedMe
         @Test
         void shouldFetchCustomers() throws Exception {
-            mockMvc.perform(get("/api/customer"))
+            mockMvc.perform(get("/api/customer/page/0"))
                     .andExpect(status().isOk())
                     .andDo(result -> {
                         System.out.println(result.getResponse().getContentAsString());

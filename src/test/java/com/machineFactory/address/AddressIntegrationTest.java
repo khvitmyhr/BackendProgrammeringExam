@@ -43,7 +43,7 @@ public class AddressIntegrationTest {
 
     @Test
     void shouldFetchAddressesExpectIsOk() throws Exception {
-        mockMvc.perform(get("/api/address"))
+        mockMvc.perform(get("/api/address/page/0"))
                 .andExpect(status().isOk())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());

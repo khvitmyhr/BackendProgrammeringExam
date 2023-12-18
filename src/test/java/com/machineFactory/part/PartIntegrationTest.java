@@ -34,7 +34,7 @@ public class PartIntegrationTest {
     //Test from Jason repo, source in readme
     @Test
     void shouldFetchParts() throws Exception {
-        mockMvc.perform(get("/api/part"))
+        mockMvc.perform(get("/api/part/page/0"))
                 .andExpect(status().isOk())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());

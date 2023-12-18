@@ -28,11 +28,6 @@ public class AddressController {
         return addressService.getAllAddressesWithPagination(pageNr);
     }
 
-    @GetMapping
-    public List<Address> getAllAddresses(){
-        return addressService.getAllAddresses();
-    }
-
     @PostMapping
     public Address createAddress(@RequestBody Address address) {
         return addressService.createAddress(address);

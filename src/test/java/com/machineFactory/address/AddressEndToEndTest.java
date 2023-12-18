@@ -22,7 +22,7 @@ public class AddressEndToEndTest {
 
     @Test
     public void shouldGetAllAddressesAndGet200() throws Exception {
-        mockMvc.perform(get("/api/address"))
+        mockMvc.perform(get("/api/address/page/0"))
                 .andExpect(status().isOk());
     }
 

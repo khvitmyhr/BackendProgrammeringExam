@@ -22,7 +22,7 @@ public class CustomerEndToEndTest {
 
     @Test
     public void shouldGetAllCustomersAndGet200() throws Exception {
-        mockMvc.perform(get("/api/customer"))
+        mockMvc.perform(get("/api/customer/page/0"))
                 .andExpect(status().isOk());
     }
 

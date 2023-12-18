@@ -39,7 +39,7 @@ public class MachineIntegrationTest {
     //Test from Jason repo, see readme for resource
     @Test
     void shouldFetchMachines() throws Exception {
-        mockMvc.perform(get("/api/machine"))
+        mockMvc.perform(get("/api/machine/page/0"))
                 .andExpect(status().isOk())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());

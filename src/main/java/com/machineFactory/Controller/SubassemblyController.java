@@ -28,11 +28,6 @@ public class SubassemblyController {
         return subassemblyService.getAllSubassemblysWithPagination(pageNr);
     }
 
-    @GetMapping
-    public List<Subassembly> getAllSubassemblies(){
-        return subassemblyService.getAllSubassemblies();
-    }
-
     @PostMapping
     public Subassembly createSubassembly(@RequestBody Subassembly subassembly) {
         return subassemblyService.createSubassembly(subassembly);

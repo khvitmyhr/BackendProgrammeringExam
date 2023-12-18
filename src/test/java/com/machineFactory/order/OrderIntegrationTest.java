@@ -32,7 +32,7 @@ public class OrderIntegrationTest {
     //Tests from Jason repo, source in readMe
     @Test
     void shouldFetchOrders() throws Exception {
-        mockMvc.perform(get("/api/order"))
+        mockMvc.perform(get("/api/order/page/0"))
                 .andExpect(status().isOk())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());

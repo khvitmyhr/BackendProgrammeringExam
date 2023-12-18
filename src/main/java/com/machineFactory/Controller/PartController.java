@@ -25,11 +25,6 @@ public class PartController {
         return partService.findPartById(id);
     }
 
-    @GetMapping
-    public List<Part> getAllParts(){
-        return partService.getAllParts();
-    }
-
     @GetMapping("/page/{pageNr}")
     public List<Part> getPartByPage(@PathVariable int pageNr) {
         return partService.getAllPartsWithPagination(pageNr);

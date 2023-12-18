@@ -31,11 +31,6 @@ public class OrderController {
         return orderService.getAllOrdreWithPagination(pageNr);
     }
 
-    @GetMapping
-    public List<OrderModel> getAllOrders(){
-        return orderService.getAllOrders();
-    }
-
     @PostMapping
     public OrderModel createOrderModel(@RequestBody OrderModel orderModel) {
         return orderService.createOrderModel(orderModel);

@@ -24,7 +24,7 @@ public class SubassemblyIntegrationTest {
     //Test from Jason repo
     @Test
     void shouldFetcSubassemblies() throws Exception {
-        mockMvc.perform(get("/api/subassembly"))
+        mockMvc.perform(get("/api/subassembly/page/0"))
                 .andExpect(status().isOk())
                 .andDo(result -> {
                     System.out.println(result.getResponse().getContentAsString());
