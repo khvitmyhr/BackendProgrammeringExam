@@ -24,6 +24,7 @@ public class BackendProgrammeringExamApplication {
     private Environment environment;
 
     Faker faker = new Faker();
+
     @Bean
     CommandLineRunner commandLineRunner(
             CustomerRepo customerRepo,
