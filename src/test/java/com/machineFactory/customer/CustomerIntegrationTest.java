@@ -30,9 +30,16 @@ public class CustomerIntegrationTest {
 
         @Test
         @Transactional
-        void shouldFetchAllCustomers(){
+        void shouldFetchAllCustomersExpects8(){
             var customers = customerService.getAllCustomers();
             assert customers.size() == 8;
+        }
+
+        @Test
+        @Transactional
+        void shouldFetchCustomersFromPage1Expect3(){
+            var customers = customerService.getAllCustomerWithPagination(1);
+            assert customers.size() == 3;
         }
 
         @Test

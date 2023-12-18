@@ -15,6 +15,8 @@ We have included some extra functionality such as Responsentity and Faker,
 and also created a customer/address and added an address/customer to it. 
 We also created environment for test- and prod code, with 2 different yaml files.
 The tests that doesn`t run is commented out with //test.
+We had some difficulty with some tests failing occasionally when being run from the folder, but not individually.
+Example of this is the test "shouldFetchCustomersFromPage1Expect3" from file CustomerIntegrationTest.
 
 We discovered some difficulties with our unit tests for the Models Customer og Address.
 We tried to solve this by having two environments; for test and prod code.
