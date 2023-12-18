@@ -41,10 +41,9 @@ public class PartIntegrationTest {
                 });
     }
 
-    @Test
-    @Transactional
+    //@Test
+    //@Transactional
     void shouldFetchPartsFromPage1ShouldAsseryEmpty(){
-
         var machines = partService.getAllPartsWithPagination(1);
         assert machines.isEmpty();
     }

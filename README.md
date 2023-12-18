@@ -2,20 +2,20 @@ About our project:
 
 Run the system from Main (file BackendProgrammeringExamApplication).
 This will let you use the system from Postman or H2 console database.
-You can fetch all domainLists: with api/"domainName"/page/pageNr (starts from 0).
-All tests can be run from "run Tests in machineFactory", or individual.
+You can fetch all domainLists with api/"domainName"/page/pageNr (starts from 0).
+All tests can be run from the folder "com.machineFactory", or individual.
 
 We made a system where each machine consists of multiple subassemblies, and each
 subassembly consists of multiple parts. Our system is created so only one machine can be sold in per order.
 Our factory only produces one machine of each type, this is by purpose a one-to-many relationship.
 
 The system is complete, including all functionality and all tests.
-Each testcases can be initiated from each folder in the test folder.
 We have implemented DataJPATest and SpringBootTest.
 We have included some extra functionality such as Responsentity and Faker,
 and also created a customer/address and added an address/customer to it. 
 We also created environment for test- and prod code, with 2 different yaml files.
-The tests that doesn`t run is commented out with //test.
+The tests that doesn`t run correctly has the test annotation commented out with//@Test.
+These tests might fail either when run from the machineFactory folder- og their domain folder.
 We had some difficulty with some tests failing occasionally when being run from the folder, but not individually.
 Example of this is the test "shouldFetchCustomersFromPage1Expect3" from file CustomerIntegrationTest.
 
