@@ -3,7 +3,7 @@ About our project:
 Run the system from Main (file BackendProgrammeringExamApplication).
 This will let you use the system from Postman or H2 console database.
 You can fetch all domainLists: with api/"domainName"/page/pageNr (starts from 0).
-All tests can be run from "run Tests in machineFactory", or individual
+All tests can be run from "run Tests in machineFactory", or individual.
 
 We made a system where each machine consists of multiple subassemblies, and each
 subassembly consists of multiple parts. Our system is created so only one machine can be sold in per order.
