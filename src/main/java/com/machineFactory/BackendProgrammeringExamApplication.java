@@ -41,7 +41,6 @@ public class BackendProgrammeringExamApplication {
             ArrayList<Part> partsForMotor,
             ArrayList<Part> partsForGearbox,
             ArrayList<Part> partsForChain
-
         ) {
 
         return args -> {
